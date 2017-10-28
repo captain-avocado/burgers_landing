@@ -27,3 +27,13 @@ html {
   padding: 0;
   line-height: 1.42;
 }
+
+section {
+  height: 100vh;
+  min-height: 650px;
+  min-width: 940px;
+}
+
+.wrapper {
+  overflow: hidden;
+}
