@@ -1,0 +1,64 @@
+.welcome {
+  background-image: url('/img/bg/intro-bg.jpg');
+  background-size: cover;
+  height: 100vh;
+
+  .container {
+    width: calculate-rem(940px);
+    margin: 0 auto;
+
+    .header {
+      width: 100%;
+      height: calculate-rem(90px);
+      // margin-top: calculate-rem(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo {
+        max-width: calculate-rem(100px);
+        max-height: calculate-rem(70px);
+
+        .logo__link {
+          display: flex;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .navigation__list {
+        display: flex;
+        justify-content: row;
+        font-family: 'ubuntulight';
+        @include font-size(13px);
+        text-transform: uppercase;
+        // &:first-child {
+        //   width: calculate-rem(100px);
+        //   height: calculate-rem(35px);
+        //   background-color: $orange;
+        // }
+        .navigation__item {
+          margin-right: calculate-rem(12px);
+
+          &:last-of-type {
+            min-width: calculate-rem(100px);
+            min-height: calculate-rem(35px);
+            background-color: $orange;
+            text-align: center;
+          }
+
+          &::after:not(:last-of-type) {
+            content: '•';
+            color: $white;
+            margin-left: calculate-rem(14px);
+          }
+
+          .navigation__link {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

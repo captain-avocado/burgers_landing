@@ -1,0 +1,16 @@
+//config
+@import "config/variables";
+@import "config/mixins";
+//layout
+@import "layout/fonts";
+@import "layout/base";
+@import "layout/adjustment";
+//section
+@import "section/welcome";
+@import "section/about";
+@import "section/contact-us.scss";
+@import "section/map.scss";
+@import "section/menu.scss";
+@import "section/team.scss";
+@import "section/offer.scss";
+@import "section/feed.scss";
