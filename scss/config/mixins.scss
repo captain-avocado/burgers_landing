@@ -10,5 +10,28 @@
 }
 @mixin font-size($size) {
   font-size: $size; //Fallback in px
-  font-size: calculateRem($size);
+  font-size: calculate-rem($size);
+}
+@mixin welcome-link {
+  font-family: 'ubuntu';
+  font-size: calculate-rem(14px);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $white;
+  text-decoration: none;
+}
+@mixin btn($min-width, $min-height, $background-color, $color) {
+  display: block;
+  min-width: calculate-rem($min-width);
+  min-height: calculate-rem($min-height);
+  background-color: $background-color;
+  font-family: 'ubuntu';
+  font-size: calculate-rem(14px);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $color;
+  text-decoration: none;
+  text-align: center;
+  line-height: calculate-rem($min-width);
+  border-radius: calculate-rem(3px);
 }

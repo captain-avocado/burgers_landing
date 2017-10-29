@@ -1,3 +1,45 @@
-.welcome {
-  // background-image: url('/img/bg/intro-bg.jpg');
+.about {
+  // background-image: url('/img/bg/best-bg.jpg');
+  background-size: cover;
+}
+
+.title {
+  color: $black;
+  font-family: 'gagalin';
+  @include font-size(72px);
+  text-align: center;
+  padding-top: calculate-rem(80px);
+  margin-bottom: calculate-rem(90px);
+}
+
+.advantages {
+  display: flex;
+  margin-left: calculate-rem(-14px);
+  // flex-wrap: wrap;
+  .advantages__item {
+    flex: 1;
+    text-align: center;
+    color: $black;
+    margin-right: 20px;
+
+    .advantages__img {
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+      background: center center no-repeat;
+    }
+
+    .advantages__title {
+      font-family: 'lifehack';
+      font-size: calculate-rem(24px);
+      margin-bottom: calculate-rem(16px);
+    }
+
+    .advantages__text {
+      font-family: 'ubuntu';
+      font-weight: 100;
+      font-size: calculate-rem(14px);
+    }
+  }
 }

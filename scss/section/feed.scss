@@ -1,0 +1,84 @@
+// .feed__list {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: stretch;
+// }
+//
+// .feed__item {
+//   // flex: 1;
+//   flex-basis: 25% 100%;
+//   // width: 230px;
+//   overflow: hidden;
+//   background-position: 50% 50%;
+//   background-repeat: no-repeat;
+// }
+//
+// .feed__img {
+//   visibility: hidden;
+// }
+
+.feed__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .feed__item {
+    flex-basis: 25%;
+    background-position: 50% 50%;
+    background-size: cover;
+
+    .feed__img {
+      visibility: hidden;
+    }
+
+    .feed__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        background: rgba(0, 0, 0, .5);
+        transition: 0.3s;
+      }
+
+      &hover .feed__about {
+        opacity: 1;
+        transition: 0.3s;
+      }
+    }
+
+    .feed__link:hover .feed__about {
+      opacity: 1;
+      transition: 0.3s;
+    }
+
+    .feed__about {
+      display: flex;
+      // align-items: baseline;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      font-family: 'ubuntu';
+      font-size: calculate-rem(14px);
+
+      .feed__title {
+        font-family: "gagalin";
+        margin-bottom: 30px;
+      }
+
+      .btn-more {
+        width: calculate-rem(110px);
+        height: calculate-rem(35px);
+        background: $black;
+        color: $white;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+link:hover {
+  opacity: 0.25;
+}

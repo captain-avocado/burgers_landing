@@ -18,7 +18,7 @@
   font-style: normal; }
 
 @font-face {
-  font-family: 'ubuntulight';
+  font-family: 'ubuntu';
   src: url("../../fonts/ubuntu-light-webfont.woff2") format("woff2"), url("../../fonts/ubuntu-light-webfont.woff") format("woff");
   font-weight: 100;
   font-style: normal; }
@@ -71,7 +71,6 @@ section {
   overflow: hidden; }
 
 .welcome {
-  background-image: url("../../img/bg/intro-bg.jpg");
   background-size: cover; }
 
 .container {
@@ -79,7 +78,6 @@ section {
   margin: 0 auto; }
 
 .header {
-  width: 100%;
   height: 5.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -117,41 +115,32 @@ section {
   justify-content: center; }
   .navigation__list .navigation__item {
     margin-right: 0.75rem; }
-    .navigation__list .navigation__item::after {
+    .navigation__list .navigation__item:not(:last-of-type):after {
       content: '•';
       color: #fff;
       margin-left: 0.875rem; }
     .navigation__list .navigation__item .navigation__link {
-      font-family: 'ubuntulight';
-      font-size: 13px;
-      font-size: calculateRem(13px);
+      font-family: 'ubuntu';
+      font-size: 0.875rem;
+      font-weight: 500;
       text-transform: uppercase;
       color: #fff;
       text-decoration: none; }
 
 .btn-order {
+  display: block;
   min-width: 6.25rem;
   min-height: 2.1875rem;
-  background-color: #e45028; }
-  .btn-order .btn-order__link {
-    text-transform: uppercase;
-    font-family: 'ubuntulight';
-    font-size: 13px;
-    font-size: calculateRem(13px);
-    color: #fff;
-    text-decoration: none;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center; }
+  background-color: #e45028;
+  font-family: 'ubuntu';
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2.1875rem;
+  border-radius: 0.1875rem; }
 
 .intro {
   display: -webkit-box;
@@ -167,29 +156,134 @@ section {
   -ms-flex-align: end;
   align-items: flex-end; }
   .intro .intro__text-area {
-    max-width: 410px;
-    margin-bottom: 40px; }
+    max-width: 25.625rem;
+    margin-bottom: 2.5rem; }
     .intro .intro__text-area .intro__title-who {
       text-transform: uppercase;
       color: #f9b43b;
       font-family: 'gagalin';
-      font-size: 64px; }
+      font-size: 64px;
+      font-size: 4rem; }
     .intro .intro__text-area .intro__title-what {
       color: #fff;
       font-family: 'lifehack';
-      font-size: 52px; }
+      font-size: 52px;
+      font-size: 3.25rem; }
 
 .forward {
-  width: 100%;
-  max-height: 14px;
-  margin-top: 90px;
+  width: 29px;
+  height: 14px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
+  margin: 5.625rem auto auto;
+  display: flex; }
+
+.about {
+  background-size: cover; }
+
+.title {
+  color: #2f3234;
+  font-family: 'gagalin';
+  font-size: 72px;
+  font-size: 4.5rem;
+  text-align: center;
+  padding-top: 5rem;
+  margin-bottom: 5.625rem; }
+
+.advantages {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -0.875rem; }
+  .advantages .advantages__item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: center;
+    color: #2f3234;
+    margin-right: 20px; }
+    .advantages .advantages__item .advantages__img {
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+      background: center center no-repeat; }
+    .advantages .advantages__item .advantages__title {
+      font-family: 'lifehack';
+      font-size: 1.5rem;
+      margin-bottom: 1rem; }
+    .advantages .advantages__item .advantages__text {
+      font-family: 'ubuntu';
+      font-weight: 100;
+      font-size: 0.875rem; }
+
+.feed__list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .feed__list .feed__item {
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    background-position: 50% 50%;
+    background-size: cover; }
+    .feed__list .feed__item .feed__img {
+      visibility: hidden; }
+    .feed__list .feed__item .feed__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      text-decoration: none; }
+      .feed__list .feed__item .feed__link:hover {
+        background: rgba(0, 0, 0, 0.5);
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s; }
+      .feed__list .feed__item .feed__linkhover .feed__about {
+        opacity: 1;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s; }
+    .feed__list .feed__item .feed__link:hover .feed__about {
+      opacity: 1;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s; }
+    .feed__list .feed__item .feed__about {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      font-family: 'ubuntu';
+      font-size: 0.875rem; }
+      .feed__list .feed__item .feed__about .feed__title {
+        font-family: "gagalin";
+        margin-bottom: 30px; }
+      .feed__list .feed__item .feed__about .btn-more {
+        width: 6.875rem;
+        height: 2.1875rem;
+        background: #2f3234;
+        color: #fff;
+        text-transform: uppercase; }
+
+link:hover {
+  opacity: 0.25; }
 
 /*# sourceMappingURL=main.css.map */
