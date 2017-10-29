@@ -77,20 +77,20 @@
 // }
 
 .btn-order {
-  // @include btn(100px, 35px, $orange, $white);
-  display: block;
-  min-width: calculate-rem(100px);
-  min-height: calculate-rem(35px);
-  background-color: $orange;
-  font-family: 'ubuntu';
-  font-size: calculate-rem(14px);
-  font-weight: 500;
-  text-transform: uppercase;
-  color: $white;
-  text-decoration: none;
-  text-align: center;
-  line-height: calculate-rem(35px);
-  border-radius: calculate-rem(3px);
+  @include btn(100px, 35px, $orange, $white);
+  // display: block;
+  // min-width: calculate-rem(100px);
+  // min-height: calculate-rem(35px);
+  // background-color: $orange;
+  // font-family: 'ubuntu';
+  // font-size: calculate-rem(14px);
+  // font-weight: 500;
+  // text-transform: uppercase;
+  // color: $white;
+  // text-decoration: none;
+  // text-align: center;
+  // line-height: calculate-rem(35px);
+  // border-radius: calculate-rem(3px);
 }
 
 .intro {

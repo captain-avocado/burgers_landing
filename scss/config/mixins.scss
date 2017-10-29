@@ -32,6 +32,6 @@
   color: $color;
   text-decoration: none;
   text-align: center;
-  line-height: calculate-rem($width);
+  line-height: calculate-rem($height);
   border-radius: calculate-rem(3px);
 }
