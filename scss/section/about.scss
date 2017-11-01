@@ -1,5 +1,6 @@
 .about {
-  // background-image: url('/img/bg/best-bg.jpg');
+  display: flex;
+  align-items: center;
   background-size: cover;
 }
 
@@ -8,7 +9,6 @@
   font-family: 'gagalin';
   @include font-size(72px);
   text-align: center;
-  padding-top: calculate-rem(80px);
   margin-bottom: calculate-rem(90px);
 }
 

@@ -1,17 +1,9 @@
 .welcome {
-  // background-image: url('../../img/bg/intro-bg.jpg');
   background-size: cover;
 }
 
-.container {
-  width: calculate-rem(940px);
-  margin: 0 auto;
-}
-
 .header {
-  // width: 100%;
   height: calculate-rem(90px);
-  // margin-top: calculate-rem(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,9 +24,7 @@
 .navigation__list {
   display: flex;
   justify-content: center;
-  // font-family: 'ubuntulight';
-  // @include font-size(13px);
-  // text-transform: uppercase;
+
   .navigation__item {
     margin-right: calculate-rem(12px);
 
@@ -54,50 +44,15 @@
     }
   }
 }
-// .btn-order {
-//   min-width: calculate-rem(100px);
-//   min-height: calculate-rem(35px);
-//   background-color: $orange;
-//
-//   .btn-order__link {
-//     font-family: 'ubuntu';
-//     font-size: calculate-rem(14px);
-//     font-weight: 500;
-//     text-transform: uppercase;
-//     color: $white;
-//     text-decoration: none;
-//     display: flex;
-//     width: 100%;
-//     height: 100%;
-//
-//     .btn-order__text {
-//       margin: auto;
-//     }
-//   }
-// }
 
 .btn-order {
   @include btn(100px, 35px, $orange, $white);
-  // display: block;
-  // min-width: calculate-rem(100px);
-  // min-height: calculate-rem(35px);
-  // background-color: $orange;
-  // font-family: 'ubuntu';
-  // font-size: calculate-rem(14px);
-  // font-weight: 500;
-  // text-transform: uppercase;
-  // color: $white;
-  // text-decoration: none;
-  // text-align: center;
-  // line-height: calculate-rem(35px);
-  // border-radius: calculate-rem(3px);
 }
 
 .intro {
   display: flex;
   margin: auto;
-  justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 
   .intro__text-area {
     max-width: calculate-rem(410px);
@@ -121,7 +76,5 @@
 .forward {
   width: 29px;
   height: 14px;
-  display: flex;
-  margin: calculate-rem(90px) auto auto;
-  display: flex;
+  margin: 0 auto calculate-rem(90px);
 }
