@@ -1,0 +1,23 @@
+.menu {
+  background-size: cover;
+  display: flex;
+}
+
+.title_menu {
+  font-family: "gagalin";
+  font-size: 72px;
+  color: $white;
+}
+
+.accordeon_menu {
+  position: absolute;
+  width: 100%;
+  // height: 100%;
+  // transform: rotate(-90deg);
+}
+
+.accordeon__title_menu {
+  font-family: 'gagalin';
+  font-size: 56px;
+  color: $white;
+}

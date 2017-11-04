@@ -20,10 +20,9 @@
   color: $white;
   text-decoration: none;
 }
-@mixin btn($width, $height, $background-color, $color) {
-  display: block;
-  width: calculate-rem($width);
-  height: calculate-rem($height);
+@mixin btn($p-top, $p-right, $background-color, $color) {
+  display: inline-block;
+  padding: $p-top $p-right;
   background-color: $background-color;
   font-family: 'ubuntu';
   font-size: calculate-rem(14px);
@@ -31,7 +30,5 @@
   text-transform: uppercase;
   color: $color;
   text-decoration: none;
-  text-align: center;
-  line-height: calculate-rem($height);
   border-radius: calculate-rem(3px);
 }

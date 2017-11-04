@@ -1,0 +1,65 @@
+.map {
+  background-size: cover;
+  position: relative;
+}
+
+.container_map {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  height: 60px;
+}
+
+.footer__left-col,
+.footer__right-col {
+  width: 50%;
+  height: 100%;
+}
+
+.address {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  font-family: 'ubuntu';
+  font-style: normal;
+  font-weight: 300;
+
+  &__place {
+    color: $white;
+  }
+
+  &__tel {
+    color: $orange;
+  }
+}
+
+.social {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__item {
+    width: 36px;
+    height: 36px;
+
+    &:not(:last-of-type) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.icon {
+  fill: $orange;
+  width: 36px;
+  height: 36px;
+}
