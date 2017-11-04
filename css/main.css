@@ -474,22 +474,23 @@ html {
   -ms-flex-align: center;
   align-items: center; }
   .social__item {
-    width: 36px;
-    height: 36px; }
+    width: 20px;
+    height: 20px; }
     .social__item:not(:last-of-type) {
       margin-right: 20px; }
 
 .icon {
   fill: #e45028;
-  width: 36px;
-  height: 36px; }
+  width: 20px;
+  height: 20px; }
 
 .menu {
   background-size: cover;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  position: relative; }
 
 .title_menu {
   font-family: "gagalin";
@@ -497,8 +498,7 @@ html {
   color: #fff; }
 
 .accordeon_menu {
-  position: absolute;
-  width: 100%; }
+  position: absolute; }
 
 .accordeon__title_menu {
   font-family: 'gagalin';
