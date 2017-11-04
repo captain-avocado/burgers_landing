@@ -1,0 +1,89 @@
+.feed {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+
+  .feed__item {
+    flex-basis: 25%;
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 50%;
+    filter: grayscale(1);
+
+    .feed__overlay {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .feed__overlay:hover {
+      background-color: rgba(20, 20, 20, .5);
+      transition: background-color 0.5s;
+    }
+
+    &:hover .feed__about {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .feed__img {
+      visibility: hidden;
+      display: block;
+      position: absolute;
+      left: -9999px;
+    }
+    // .feed__link {
+    //   display: block;
+    //   width: 100%;
+    //   height: 100%;
+    //   color: $white;
+    //   text-decoration: none;
+    // &:hover {
+    //   background: rgba(0, 0, 0, .5);
+    //   transition: 0.3s;
+    // }
+    //
+    // &:hover .feed__about {
+    //   opacity: 1;
+    //   transition: 0.3s;
+    // }
+    //}
+    .feed__link:hover .feed__about {
+      opacity: 1;
+      transition: 0.3s;
+    }
+
+    .feed__about {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      font-family: 'ubuntu';
+      color: $white;
+      font-size: calculate-rem(14px);
+      padding: calculate-rem(20px);
+      // .feed__link {
+      //   display: block;
+      //   width: 100%;
+      //   height: 100%;
+      //   color: $white;
+      //   text-decoration: none;
+      .feed__title {
+        font-family: "gagalin";
+        margin-bottom: 30px;
+      }
+
+      .feed__text {
+        margin-bottom: 16px;
+      }
+
+      .btn-more {
+        @include btn(110px, 35px, $black, $white);
+        // }
+      }
+    }
+  }
+}
+/////.DS_Store
