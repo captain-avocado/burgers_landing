@@ -27,7 +27,7 @@
   margin-left: calculate-rem(80px);
   margin-top: calculate-rem(90px);
 
-  .descr__title {
+  &__title {
     font-family: 'gagalin';
     font-size: calculate-rem(72px);
     color: $yellow;
@@ -36,26 +36,15 @@
 }
 
 .accordeon {
-  .accordeon__item {
-    margin-bottom: calculate-rem(36px);
+  &__item {
+    margin-bottom: calculate-rem(30px);
     color: $white;
+    margin-top: calculate-rem(8px);
+  }
 
-    .accordeon__name {
-      font-family: 'gagalin';
-      font-size: calculate-rem(14px);
-      // &::before {
-      //   content: '';
-      //   width: 0;
-      //   height: 0;
-      //   border-left: calculate-rem(5px) solid transparent;
-      //   border-right: calculate-rem(5px) solid transparent;
-      //   border-top: calculate-rem(6px) solid $yellow;
-      //   border-bottom: 0;
-      //   display: inline-block;
-      //   vertical-align: middle;
-      //   margin-right: 10px;
-      // }
-    }
+  &__name {
+    font-family: 'gagalin';
+    font-size: calculate-rem(14px);
   }
 }
 
@@ -69,7 +58,7 @@
   border-bottom: 0;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-right: calculate-rem(10px);
 }
 
 .is-active {
@@ -77,9 +66,9 @@
     color: $yellow;
 
     &::before {
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 6px solid $yellow;
+      border-left: calculate-rem(5px) solid transparent;
+      border-right: calculate-rem(5px) solid transparent;
+      border-bottom: calculate-rem(6px) solid $yellow;
       border-top: 0;
     }
   }
@@ -87,17 +76,10 @@
   .overview {
     height: auto;
     overflow: auto;
-    margin-top: 15px;
-    margin-left: 16px;
+    margin-top: calculate-rem(15px);
+    margin-left: calculate-rem(16px);
   }
 }
-//
-// .is-active .accordeon__name:before {
-//   border-left: 5px solid transparent;
-//   border-right: 5px solid transparent;
-//   border-bottom: 10px solid $yellow;
-//   border-top: 0;
-// }
 
 .overview {
   height: 0;
@@ -106,33 +88,34 @@
   margin-left: 0;
   display: flex;
 
-  .overview__avatar {
-    width: 100px;
-    height: 100px;
+  &__avatar {
+    width: calculate-rem(100px);
+    height: calculate-rem(100px);
     border-radius: 50%;
     overflow: hidden;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-
-    .overview__img {
-      visibility: hidden;
-    }
   }
 
-  .overview__text-area {
-    width: 240px;
-    margin-left: 20px;
+  &__img {
+    visibility: hidden;
+  }
+
+  &__text-area {
+    width: calculate-rem(240px);
+    margin-left: calculate-rem(20px);
     font-family: 'ubuntu';
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
 
-    .overview__position {
-      font-weight: 500;
-    }
+  &__position {
+    font-size: calculate-rem(14px);
+    font-weight: 500;
+  }
 
-    .overview__text {
-      font-weight: 100;
-    }
+  &__text {
+    font-weight: 100;
   }
 }

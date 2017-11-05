@@ -14,7 +14,7 @@
   bottom: 0;
   right: 0;
   position: absolute;
-  height: 60px;
+  height: calculate-rem(60px);
 }
 
 .footer__left-col,
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 14px;
+  font-size: calculate-rem(14px);
   font-family: 'ubuntu';
   font-style: normal;
   font-weight: 300;
@@ -40,6 +40,13 @@
   &__tel {
     color: $orange;
   }
+
+  &__tel-icon {
+    fill: $orange;
+    width: calculate-rem(12px);
+    height: calculate-rem(11px);
+    margin-right: calculate-rem(4px);
+  }
 }
 
 .social {
@@ -49,17 +56,28 @@
   align-items: center;
 
   &__item {
-    width: 20px;
-    height: 20px;
+    width: calculate-rem(20px);
+    height: calculate-rem(20px);
 
     &:not(:last-of-type) {
-      margin-right: 20px;
+      margin-right: calculate-rem(20px);
     }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 }
 
 .icon {
-  fill: $orange;
-  width: 20px;
-  height: 20px;
+  fill: $gray;
+  width: calculate-rem(20px);
+  height: calculate-rem(20px);
+
+  &:hover {
+    fill: $white;
+    transition: fill 0.3s;
+  }
 }

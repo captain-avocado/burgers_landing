@@ -46,7 +46,7 @@
 }
 
 .btn-order {
-  @include btn(10px, 15px, $orange, $white);
+  @include btn(calculate-rem(10px), calculate-rem(15px), $orange, $white);
 }
 
 .intro {
@@ -62,19 +62,19 @@
       text-transform: uppercase;
       color: $yellow;
       font-family: 'gagalin';
-      @include font-size(64px);
+      font-size: calculate-rem(64px);
     }
 
     .intro__title-what {
       color: $white;
       font-family: 'lifehack';
-      @include font-size(52px);
+      font-size: calculate-rem(52px);
     }
   }
 }
 
 .forward {
-  width: 29px;
-  height: 14px;
+  width: calculate-rem(29px);
+  height: calculate-rem(14px);
   margin: 0 auto calculate-rem(90px);
 }

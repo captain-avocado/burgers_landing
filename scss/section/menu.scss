@@ -6,7 +6,7 @@
 
 .title_menu {
   font-family: "gagalin";
-  font-size: 72px;
+  font-size: calculate-rem(72px);
   color: $white;
 }
 
@@ -20,6 +20,6 @@
 
 .accordeon__title_menu {
   font-family: 'gagalin';
-  font-size: 56px;
+  font-size: calculate-rem(56px);
   color: $white;
 }
