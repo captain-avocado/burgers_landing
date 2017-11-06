@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   background-size: cover;
+  @include phones {
+    background-position: center;
+  }
 }
 
 .title {
@@ -10,36 +13,67 @@
   font-size: calculate-rem(72px);
   text-align: center;
   margin-bottom: calculate-rem(90px);
+  @include phones {
+    margin-bottom: calculate-rem(40px);
+  }
 }
 
 .advantages {
   display: flex;
   margin-left: calculate-rem(-14px);
+  @include tablets {
+    margin: 0 calculate-rem(20px);
+  }
+  @include phones {
+    flex-direction: column;
+    margin: 0;
+  }
 
-  .advantages__item {
+  &__item {
     flex: 1;
     text-align: center;
     color: $black;
-    margin-right: calculate-rem(20px);
-
-    .advantages__img {
-      overflow: hidden;
-      width: calculate-rem(100px);
-      height: calculate-rem(100px);
-      margin: 0 auto calculate-rem(24px);
-      background: center center no-repeat;
+    @include phones {
+      display: flex;
+      justify-content: space-between;
     }
 
-    .advantages__title {
-      font-family: 'lifehack';
-      font-size: calculate-rem(24px);
-      margin-bottom: calculate-rem(16px);
+    &:not(:last-of-type) {
+      margin-right: calculate-rem(20px);
+      @include phones {
+        margin: 0 0 calculate-rem(20px);
+      }
     }
+  }
 
-    .advantages__text {
-      font-family: 'ubuntu';
-      font-weight: 100;
-      font-size: calculate-rem(14px);
+  &__img {
+    // width: calculate-rem(100px);
+    // height: calculate-rem(100px);
+    margin: 0 auto calculate-rem(24px);
+    background: center center no-repeat;
+    @include phones {
+      margin: 0;
+      display: inline-flex;
+      height: 100%;
     }
+  }
+
+  &__text-area {
+    @include phones {
+      width: 65%;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-family: 'lifehack';
+    font-size: calculate-rem(24px);
+    margin-bottom: calculate-rem(16px);
+  }
+
+  &__text {
+    font-family: 'ubuntu';
+    font-weight: 100;
+    font-size: calculate-rem(14px);
   }
 }

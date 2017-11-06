@@ -11,25 +11,46 @@
 .title_contact-us {
   color: $yellow;
   margin-bottom: calculate-rem(60px);
+  @include phones {
+    margin-bottom: calculate-rem(15px);
+    font-size: calculate-rem(50px);
+  }
 }
 
 .form {
   display: flex;
+  @include tablets {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .form__left-col,
 .form__right-col {
   width: 50%;
+  @include tablets {
+    width: 60%;
+  }
+  @include phones {
+    width: 95%;
+  }
 }
 
 .form__right-col {
   margin-left: calculate-rem(20px);
+  @include tablets {
+    margin-left: 0;
+  }
 }
 
 .form__row {
   display: flex;
   margin-bottom: calculate-rem(15px);
   margin-right: calculate-rem(-20px);
+  @include phones {
+    justify-content: center;
+  }
 }
 
 .form__label {
@@ -46,7 +67,7 @@
 
 .form__input {
   width: 100%;
-  border-radius: calculate-rem(6px) calculate-rem(8px);
+  border-radius: calculate-rem(6px);
   padding: calculate-rem(7px);
   outline: none;
   border: calculate-rem(1px) solid #d1cfcb;
@@ -54,6 +75,12 @@
   &_textarea {
     height: calculate-rem(110px);
     resize: none;
+  }
+}
+
+.form__label_checkbox {
+  @include phones {
+    justify-content: center;
   }
 }
 
@@ -145,6 +172,9 @@
     background-color: $white;
     border-right: calculate-rem(3px) solid $orange;
     border-bottom: calculate-rem(3px) solid $orange;
+    @include phones {
+      top: 10%;
+    }
   }
 }
 
@@ -156,4 +186,7 @@
   @extend .form__input-title;
   text-decoration: none;
   margin-left: calculate-rem(12px);
+  @include phones {
+    margin-right: calculate-rem(30px);
+  }
 }

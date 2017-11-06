@@ -8,6 +8,12 @@
   right: 0;
   width: 50%;
   height: 100%;
+  @include tablets {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .color-overlay {
@@ -15,8 +21,11 @@
   right: 0;
   width: 50%;
   height: 100%;
-  background-color: rgba(#2f3234, .93);
+  background-color: $gray-bg;
   opacity: 0.8;
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .descr {
@@ -26,6 +35,10 @@
   align-items: flex-start;
   margin-left: calculate-rem(80px);
   margin-top: calculate-rem(90px);
+  @include tablets {
+    align-items: center;
+    margin: 0;
+  }
 
   &__title {
     font-family: 'gagalin';
@@ -42,9 +55,19 @@
     margin-top: calculate-rem(8px);
   }
 
+  &__link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: $white;
+  }
+
   &__name {
     font-family: 'gagalin';
     font-size: calculate-rem(14px);
+    @include tablets {
+      text-align: center;
+    }
   }
 }
 
@@ -78,6 +101,9 @@
     overflow: auto;
     margin-top: calculate-rem(15px);
     margin-left: calculate-rem(16px);
+    @include tablets {
+      margin-left: 0;
+    }
   }
 }
 
@@ -87,6 +113,10 @@
   margin-top: 0;
   margin-left: 0;
   display: flex;
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__avatar {
     width: calculate-rem(100px);
@@ -95,6 +125,9 @@
     overflow: hidden;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    @include tablets {
+      margin-bottom: calculate-rem(20px);
+    }
   }
 
   &__img {
@@ -108,11 +141,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include tablets {
+      text-align: center;
+      margin-left: 0;
+    }
   }
 
   &__position {
     font-size: calculate-rem(14px);
     font-weight: 500;
+    @include tablets {
+      margin-bottom: calculate-rem(20px);
+    }
   }
 
   &__text {

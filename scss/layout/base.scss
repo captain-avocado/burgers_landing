@@ -34,7 +34,7 @@ html {
 .section {
   height: 100vh;
   min-height: 650px;
-  min-width: 940px;
+  // min-width: 340px;
   display: flex;
 }
 
@@ -48,4 +48,19 @@ html {
   flex-direction: column;
   width: calculate-rem(940px);
   margin: 0 auto;
+  @include tablets {
+    width: auto;
+    min-width: 320px;
+    padding: 0 calculate-rem(20px);
+  }
+}
+
+html {
+  font-size: 16px;
+  @include tablets {
+    font-size: 14px;
+  }
+  @include phones {
+    font-size: 13px;
+  }
 }
