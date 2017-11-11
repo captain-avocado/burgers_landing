@@ -38,3 +38,8 @@
     @content;
   }
 }
+@mixin phones-small {
+   @media screen and (max-width: $phones-small){
+    @content;
+  }
+}

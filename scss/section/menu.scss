@@ -11,8 +11,11 @@
   margin-top: calculate-rem(100px);
   margin-left: calculate-rem(80px);
   @include phones {
-    margin-top: calculate-rem(60px);
-    margin-left: calculate-rem(40px);
+    // margin-top: calculate-rem(60px);
+    // margin-left: calculate-rem(40px);
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    font-size: 3.5rem;
   }
 }
 

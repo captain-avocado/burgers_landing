@@ -52,6 +52,10 @@
     font-size: calculate-rem(14px);
     padding: calculate-rem(20px);
     @include tablets {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
   }

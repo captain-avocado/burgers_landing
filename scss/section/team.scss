@@ -66,6 +66,7 @@
     font-family: 'gagalin';
     font-size: calculate-rem(14px);
     @include tablets {
+      font-size: calculate-rem(24px);
       text-align: center;
     }
   }

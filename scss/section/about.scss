@@ -16,6 +16,12 @@
   @include phones {
     margin-bottom: calculate-rem(40px);
   }
+
+  &_about {
+    @include phones-small {
+      font-size: calculate-rem(50px);
+    }
+  }
 }
 
 .advantages {
@@ -36,12 +42,16 @@
     @include phones {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     &:not(:last-of-type) {
       margin-right: calculate-rem(20px);
       @include phones {
         margin: 0 0 calculate-rem(20px);
+      }
+      @include phones-small {
+        margin-bottom: calculate-rem(32px);
       }
     }
   }
@@ -54,7 +64,8 @@
     @include phones {
       margin: 0;
       display: inline-flex;
-      height: 100%;
+      height: 25%;
+      width: 25%;
     }
   }
 
@@ -62,6 +73,9 @@
     @include phones {
       width: 65%;
       text-align: left;
+    }
+    @include phones-small {
+      width: 60%;
     }
   }
 
@@ -75,5 +89,8 @@
     font-family: 'ubuntu';
     font-weight: 100;
     font-size: calculate-rem(14px);
+    @include phones-small {
+      font-size: calculate-rem(12px);
+    }
   }
 }

@@ -213,7 +213,11 @@ html {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-bottom: 8%;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -229,6 +233,9 @@ html {
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center; } }
+  @media screen and (max-width: 480px) {
+    .intro {
+      margin-bottom: 0; } }
   .intro__img {
     max-width: 100%;
     max-height: 100%; }
@@ -267,16 +274,22 @@ html {
     color: #f9b43b;
     font-family: 'gagalin';
     font-size: 4.5rem; }
+    @media screen and (max-width: 320px) {
+      .intro__title-who {
+        font-size: 3.5rem; } }
   .intro__title-what {
     color: #fff;
     font-family: 'lifehack';
     font-size: 4rem;
     line-height: 1; }
+    @media screen and (max-width: 320px) {
+      .intro__title-what {
+        font-size: 3rem; } }
 
 .forward {
   width: 1.8125rem;
   height: 0.875rem;
-  margin: 0 auto 5.625rem; }
+  margin: 0 auto 3.125rem; }
   @media screen and (max-width: 768px) {
     .forward {
       margin-bottom: 2.5rem; } }
@@ -304,6 +317,9 @@ html {
   @media screen and (max-width: 480px) {
     .title {
       margin-bottom: 2.5rem; } }
+  @media screen and (max-width: 320px) {
+    .title_about {
+      font-size: 3.125rem; } }
 
 .advantages {
   display: -webkit-box;
@@ -338,12 +354,19 @@ html {
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
-        justify-content: space-between; } }
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; } }
     .advantages__item:not(:last-of-type) {
       margin-right: 1.25rem; }
       @media screen and (max-width: 480px) {
         .advantages__item:not(:last-of-type) {
           margin: 0 0 1.25rem; } }
+      @media screen and (max-width: 320px) {
+        .advantages__item:not(:last-of-type) {
+          margin-bottom: 2rem; } }
   .advantages__img {
     margin: 0 auto 1.5rem;
     background: center center no-repeat; }
@@ -354,11 +377,15 @@ html {
         display: -webkit-inline-flex;
         display: -ms-inline-flexbox;
         display: inline-flex;
-        height: 100%; } }
+        height: 25%;
+        width: 25%; } }
   @media screen and (max-width: 480px) {
     .advantages__text-area {
       width: 65%;
       text-align: left; } }
+  @media screen and (max-width: 320px) {
+    .advantages__text-area {
+      width: 60%; } }
   .advantages__title {
     font-family: 'lifehack';
     font-size: 1.5rem;
@@ -367,6 +394,9 @@ html {
     font-family: 'ubuntu';
     font-weight: 100;
     font-size: 0.875rem; }
+    @media screen and (max-width: 320px) {
+      .advantages__text {
+        font-size: 0.75rem; } }
 
 .contact-us {
   background-size: cover; }
@@ -729,8 +759,9 @@ html {
   margin-left: 5rem; }
   @media screen and (max-width: 480px) {
     .title_menu {
-      margin-top: 3.75rem;
-      margin-left: 2.5rem; } }
+      margin-top: 1.5rem;
+      margin-left: 1.5rem;
+      font-size: 3.5rem; } }
 
 .accordeon_menu {
   position: absolute;
@@ -879,6 +910,7 @@ html {
   font-size: 0.875rem; }
   @media screen and (max-width: 768px) {
     .accordeon__name {
+      font-size: 1.5rem;
       text-align: center; } }
 
 .accordeon__name::before {
@@ -1026,6 +1058,23 @@ html {
     padding: 1.25rem; }
     @media screen and (max-width: 768px) {
       .feed__about {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
         text-align: center; } }
   .feed__title {
     font-family: "gagalin";

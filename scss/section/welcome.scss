@@ -99,11 +99,15 @@
 
 .intro {
   display: flex;
-  margin: auto;
+  flex: 1;
+  margin-bottom: 8%;
   align-items: center;
   @include tablets {
     flex-direction: column;
     justify-content: center;
+  }
+  @include phones {
+    margin-bottom: 0;
   }
 
   &__img {
@@ -138,6 +142,9 @@
     color: $yellow;
     font-family: 'gagalin';
     font-size: calculate-rem(72px);
+    @include phones-small {
+      font-size: calculate-rem(56px);
+    }
   }
 
   &__title-what {
@@ -145,13 +152,16 @@
     font-family: 'lifehack';
     font-size: calculate-rem(64px);
     line-height: 1;
+    @include phones-small {
+      font-size: calculate-rem(3*16px);
+    }
   }
 }
 
 .forward {
   width: calculate-rem(29px);
   height: calculate-rem(14px);
-  margin: 0 auto calculate-rem(90px);
+  margin: 0 auto calculate-rem(50px);
   @include tablets {
     margin-bottom: calculate-rem(40px);
   }
