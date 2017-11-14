@@ -14,8 +14,9 @@
     width: 80%;
     padding: 0;
   }
-  @include phones-small {
+  @include phones {
     min-width: auto;
+    width: 70%;
   }
 }
 
@@ -23,6 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @include phones {
+    flex: 1;
+  }
 
   &__img_right {
     transform: rotate(-90deg);
@@ -158,7 +162,7 @@
   max-width: 95%;
   max-height: 95%;
   @include phones {
-    max-width: 80%;
+    max-width: 95%;
     z-index: 1;
     align-self: flex-end;
   }

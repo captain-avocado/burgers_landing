@@ -1177,9 +1177,10 @@ html {
       justify-content: center;
       width: 80%;
       padding: 0; } }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 480px) {
     .container_info {
-      min-width: auto; } }
+      min-width: auto;
+      width: 70%; } }
 
 .arrow {
   display: -webkit-box;
@@ -1194,6 +1195,12 @@ html {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center; }
+  @media screen and (max-width: 480px) {
+    .arrow {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1; } }
   .arrow__img_right {
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -1350,7 +1357,7 @@ html {
   max-height: 95%; }
   @media screen and (max-width: 480px) {
     .avatar-part__img {
-      max-width: 80%;
+      max-width: 95%;
       z-index: 1;
       -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
