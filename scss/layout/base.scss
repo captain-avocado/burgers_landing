@@ -33,7 +33,7 @@ html {
 
 .section {
   height: 100vh;
-  min-height: 650px;
+  min-height: calculate-rem(650px);
   // min-width: 340px;
   display: flex;
 }

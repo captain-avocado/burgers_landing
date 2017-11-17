@@ -1,6 +1,7 @@
 .offer {
   background: linear-gradient(to top, #f9b43b, #eb8c38, #f9b43b);
   justify-content: space-around;
+  position: relative;
 }
 
 .container_info {
@@ -11,12 +12,13 @@
   @include tablets {
     flex-direction: column;
     justify-content: center;
-    width: 80%;
-    padding: 0;
+    // width: 80%;
+    padding: 0 5%;
   }
   @include phones {
     min-width: auto;
-    width: 70%;
+    padding: 0 10%;
+    // width: 70%;
   }
 }
 
@@ -25,7 +27,17 @@
   align-items: center;
   justify-content: center;
   @include phones {
-    flex: 1;
+    // flex: 1;
+    position: absolute;
+    top: 50%;
+  }
+
+  &_left {
+    left: 0;
+  }
+
+  &_right {
+    right: 0;
   }
 
   &__img_right {
@@ -56,7 +68,7 @@
     height: 40%;
   }
   @include phones-small {
-    height: 35%;
+    height: 45%;
   }
 }
 
@@ -118,6 +130,7 @@
   border-radius: calculate-rem(4px);
   padding: calculate-rem(20px);
   color: $black;
+  z-index: 10;
 }
 
 .ingredients {

@@ -1,3 +1,42 @@
+$(document).ready(() => {
+
+  //native js code
+  let addListenerMenu = function() {
+    let body = document.querySelector('body');
+    console.log(body);
+    let burger = document.querySelector('.burger-link');
+    console.log(burger);
+
+    burger.addEventListener('click', function() {
+      body.classList.toggle('is-clicked');
+    });
+  };
+  addListenerMenu();
+
+
+  $('.accordeon__link').on('click', (e) => {
+    e.preventDefault();
+
+    $('.accordeon__item').each((index, item) => {
+      if (index != $(e.currentTarget).parent().index()) {
+        $(item).removeClass('is-active');
+      }
+    });
+
+    $(e.currentTarget).parent().toggleClass('is-active');
+  });
+
+
+})
+
+
+
+
+
+
+
+
+
 // var begin = "Start point";
 // console.log(begin);
 //
@@ -39,16 +78,6 @@
 
 
 
-let addListenerMenu = function() {
-  let body = document.querySelector('body');
-  console.log(body);
-  let burger = document.querySelector('.burger-link');
-  console.log(burger);
-
-  burger.addEventListener('click', function() {
-    body.classList.toggle('is-clicked');
-  });
-}
 
 // let addListenerDropdown = function() {
 //   let link = document.querySelector('avatar-part__compound-link');
@@ -83,7 +112,6 @@ let addListenerMenu = function() {
 // }
 
 
-addListenerMenu();
 // if (document.clientWidth < 768) {
 //   addListenerDropdown();
 // }
