@@ -16,13 +16,11 @@ $(document).ready(() => {
 
   $('.accordeon__link').on('click', (e) => {
     e.preventDefault();
-
     $('.accordeon__item').each((index, item) => {
       if (index != $(e.currentTarget).parent().index()) {
         $(item).removeClass('is-active');
       }
     });
-
     $(e.currentTarget).parent().toggleClass('is-active');
   });
 
