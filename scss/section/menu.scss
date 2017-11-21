@@ -35,23 +35,32 @@
 .is-active {
   .burg-descr {
     width: calculate-rem(540px);
+    font-size: calculate-rem(14px);
     padding: calculate-rem(60px) calculate-rem(35px);
     @include tablets {
-      width: calculate-rem(270px);
+      width: 100%;
+    }
+    @include phones {
+      font-size: 0.65rem;
     }
   }
 }
+// .font-visible {
+//   .burg-descr {
+//     font-size: calculate-rem(14px);
+//   }
+// }
 
 .burg-descr {
   width: 0;
   background-color: $gray-bg;
   color: $white;
-  font-size: calculate-rem(14px);
+  font-size: 0;
   font-family: 'ubuntu';
   font-weight: 100;
 }
 
-.accordeon__item-link {
+.accordeon__link_menu {
   text-decoration: none;
   background-size: cover;
   width: calculate-rem(80px);

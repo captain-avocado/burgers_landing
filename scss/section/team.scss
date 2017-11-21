@@ -4,6 +4,7 @@
 }
 
 .holding-overlay {
+  display: flex;
   position: absolute;
   right: 0;
   width: 50%;
@@ -34,7 +35,7 @@
   justify-content: space-around;
   align-items: flex-start;
   margin-left: calculate-rem(80px);
-  margin-top: calculate-rem(90px);
+  // margin-top: calculate-rem(90px);
   @include tablets {
     align-items: center;
     margin: 0;
@@ -44,18 +45,18 @@
     font-family: 'gagalin';
     font-size: calculate-rem(72px);
     color: $yellow;
-    margin-bottom: calculate-rem(90px);
+    // margin-bottom: calculate-rem(90px);
   }
 }
 
 .accordeon {
-  &__item {
+  &__item_team {
     margin-bottom: calculate-rem(30px);
     color: $white;
     margin-top: calculate-rem(8px);
   }
 
-  &__link {
+  &__link_team {
     display: block;
     height: 100%;
     text-decoration: none;
@@ -98,18 +99,36 @@
   }
 
   .overview {
-    height: auto;
+    height: calculate-rem(100px);
+    // transition: height 0.5s;
+    // opacity: 1;
     overflow: auto;
     margin-top: calculate-rem(15px);
     margin-left: calculate-rem(16px);
     @include tablets {
       margin-left: 0;
+      height: calculate-rem(200px);
     }
+    font-size: calculate-rem(16px);
+    opacity: 1;
+    // transition: opacity 0.1s;
+    // &__avatar {
+    //   display: inline-flex;
+    //
+    // }
+    //
+    // &__position {
+    //   font-size: calculate-rem(14px);
+    // }
   }
 }
 
 .overview {
+  opacity: 0;
+  // transition: opacity 0.3s;
   height: 0;
+  // font-size: 0;
+  // transition: height 0.5s;
   overflow: hidden;
   margin-top: 0;
   margin-left: 0;
@@ -120,6 +139,7 @@
   }
 
   &__avatar {
+    // display: none;
     width: calculate-rem(100px);
     height: calculate-rem(100px);
     border-radius: 50%;

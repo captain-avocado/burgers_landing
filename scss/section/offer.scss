@@ -4,6 +4,14 @@
   position: relative;
 }
 
+.none {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
 .container_info {
   display: flex;
   flex-direction: row;
@@ -22,7 +30,22 @@
   }
 }
 
+.viewport {
+  overflow: hidden;
+}
+
+.slider {
+  height: 100%;
+  // display: flex;
+  &__item {
+    height: 100%;
+    // width: 100%;
+    @extend .container_info
+  }
+}
+
 .arrow {
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
