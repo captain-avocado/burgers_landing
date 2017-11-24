@@ -3,13 +3,19 @@ $(document).ready(() => {
   //native js code
   let addListenerMenu = function() {
     let body = document.querySelector('body');
-    console.log(body);
     let burger = document.querySelector('.burger-link');
-    console.log(burger);
+    // let burgerLinks = document.querySelector('.navigation__link_burger');
 
-    burger.addEventListener('click', function() {
+    burger.addEventListener('click', function(e) {
+      e.preventDefault();
       body.classList.toggle('is-clicked');
     });
+
+    $('.navigation__link_burger').on('click', function(e) {
+      e.preventDefault();
+      $(body).removeClass('is-clicked');
+    });
+
   };
   addListenerMenu();
 
@@ -184,8 +190,126 @@ $(document).ready(() => {
 
 
 
+//onePageScroll(
+let onePageScroll = () => {
+  let inScroll = false;
 
+  let defineSections = (sections) => {
+    let curSection = $('.section').filter('.active');
+    return {
+      curSection: curSection,
+      nextSection: curSection.next(),
+      prevSection: curSection.prev(),
+    }
+  }
 
+  let transformCSS = function(index) {
+    let number = -(index * 100) + '%';
+    $('.content').css({
+      'transform': `translate(0, ${number})`,
+      '-webkit-transform': `translate(0, ${number})`,
+    });
+  }
+
+  let moveSection = (scrollValue) => {
+    let sections = defineSections();
+    let index = sections.curSection.index();
+
+    if (!inScroll) {
+      inScroll = true;
+      if (scrollValue > 0 && sections.nextSection.length) {
+        index++;
+        transformCSS(index);
+      }
+      if (scrollValue < 0 && sections.prevSection.length) {
+        index--;
+        transformCSS(index);
+      }
+
+      setTimeout(() => {
+        inScroll = false;
+        if (scrollValue > 0 && sections.nextSection.length) {
+          sections.nextSection.addClass('active');
+          sections.curSection.removeClass('active');
+        }
+        if (scrollValue < 0 && sections.prevSection.length) {
+          sections.prevSection.addClass('active');
+          sections.curSection.removeClass('active');
+        }
+      }, 1300);
+    }
+  }
+
+  $('.wrapper').on({
+    wheel: e => {
+      let scrollValue = e.originalEvent.deltaY;
+      moveSection(scrollValue);
+    },
+    touchmove: e => (e.preventDefault())
+  });
+
+  $('body').on('keydown', (e) => {
+    let keyCode = e.keyCode;
+
+    switch (keyCode) {
+      case 40:
+        moveSection(1);
+        break;
+      case 38:
+        moveSection(-1);
+        break;
+      default:
+        break;
+    }
+  });
+
+  $('.navigation__link').on('click', (e) => {
+    e.preventDefault;
+    let index = $(e.currentTarget).parent().index();
+    if (index === 5) index++;
+    transformCSS(++index);
+    $('.section').eq(0).removeClass('active');
+    $('.section').eq(index).addClass('active');
+  });
+
+  $('.btn-order').on('click', (e) => {
+    e.preventDefault;
+    transformCSS(6);
+    if ($(e.currentTarget).hasClass('btn-order_welcome')) {
+      let initialIndex = $('.section').filter('.welcome').index();
+      $('.section').eq(initialIndex).removeClass('active');
+    }
+    if ($(e.currentTarget).hasClass('btn-order_offer')) {
+      let initialIndex = $('.section').filter('.offer').index();
+      $('.section').eq(initialIndex).removeClass('active');
+    }
+    $('.section').eq(6).addClass('active');
+  });
+
+  $('.forward').on('click', (e) => {
+    e.preventDefault();
+    transformCSS(1);
+    $('.section').eq(0).removeClass('active');
+    $('.section').eq(1).addClass('active');
+
+  });
+
+  const mobileDetect = new MobileDetect(window.navigator.userAgent);
+  const isMobile = mobileDetect.mobile();
+
+  if (isMobile) {
+    console.log('true');
+    $('body').swipe({
+      swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+        console.log(direction);
+        if (direction === 'up') moveSection(1);
+        if (direction === 'down') moveSection(-1);
+      }
+    });
+  }
+}
+
+onePageScroll();
 
 
 // $.fn.myPlugin = function() {
