@@ -17,7 +17,11 @@
 
     &:hover .feed__about {
       opacity: 1;
-      transition: opacity 0.3s;
+      transition: opacity 0.5s;
+      // @include tablets {
+      //   // opacity: 0;
+      //   // transition: opacity 2s;
+      // }
     }
   }
 
@@ -25,10 +29,16 @@
     width: 100%;
     height: 100%;
     display: block;
+    background-color: rgba(20, 20, 20, 0);
+    transition: background-color 0.5s;
 
     &:hover {
       background-color: rgba(20, 20, 20, .5);
       transition: background-color 0.5s;
+      // @include tablets {
+      //   background-color: rgba(20, 20, 20, 0);
+      //   transition: background-color 2s;
+      // }
     }
   }
 
@@ -39,14 +49,12 @@
     left: calculate-rem(-9999px);
   }
 
-  &__link:hover .feed__about {
-    opacity: 1;
-    transition: 0.3s;
-  }
-
   &__about {
     height: 100%;
+    //
     opacity: 0;
+    transition: opacity 0.5s;
+    //
     font-family: 'ubuntu';
     color: $white;
     font-size: calculate-rem(14px);
@@ -75,7 +83,69 @@
     }
   }
 }
+// .touched {
+//   .feed__about {
+//     opacity: 1;
+//     transition: opacity 2s;
+//   }
+//
+//   .feed__overlay {
+//     background-color: rgba(20, 20, 20, .5);
+//     transition: background-color 2s;
+//   }
+//
+//   .btn-more {
+//     // display: inline-block;
+//   }
+// }
 
 .btn-more {
   @include btn(calculate-rem(10px), calculate-rem(15px), $black, $white);
+  // display: none;
+}
+
+.popup {
+  width: calculate-rem(470px);
+  position: relative;
+
+  h2 {
+    font-family: 'gagalin';
+    font-size: calculate-rem(14px);
+    font-weight: 300;
+  }
+
+  p {
+    font-family: 'ubuntu';
+    font-size: calculate-rem(14px);
+    font-weight: 300;
+  }
+
+  &__close {
+    display: block;
+    width: calculate-rem(15px);
+    height: calculate-rem(15px);
+    position: absolute;
+    right: 24px;
+    top: 24px;
+  }
+
+  &__cross {
+    width: calculate-rem(15px);
+    height: calculate-rem(4px);
+    border-radius: calculate-rem(3px);
+    background-color: $orange;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: calculate-rem(5px);
+
+    &::before {
+      content: '';
+      display: block;
+      width: calculate-rem(15px);
+      height: calculate-rem(4px);
+      border-radius: calculate-rem(3px);
+      background-color: $orange;
+      transform: rotate(90deg);
+    }
+  }
 }
