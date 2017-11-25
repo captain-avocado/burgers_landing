@@ -252,75 +252,81 @@ html {
   -ms-flex-align: center;
   align-items: center; }
 
-.is-clicked {
-  overflow: hidden; }
-  .is-clicked .container_welcome {
-    background: rgba(90, 90, 90, 0.8);
-    -webkit-transition: background 0.3s;
-    -o-transition: background 0.3s;
-    transition: background 0.3s;
-    margin: 0; }
-  .is-clicked .forward,
-  .is-clicked .intro {
-    display: none; }
-  .is-clicked .logo {
-    margin: 0; }
-  .is-clicked .navigation_main {
-    display: none; }
-  .is-clicked .navigation_burger {
+.is-clicked .container_welcome {
+  background: rgba(90, 90, 90, 0.8);
+  -webkit-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+  margin: 0; }
+
+.is-clicked .forward,
+.is-clicked .intro {
+  display: none; }
+
+.is-clicked .logo {
+  margin: 0; }
+
+.is-clicked .navigation_main {
+  display: none; }
+
+.is-clicked .navigation_burger {
+  display: block; }
+
+.is-clicked .will-appear {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+
+.is-clicked .navigation {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  .is-clicked .navigation__list_burger {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .is-clicked .navigation__link {
+    font-size: 1.125rem; }
+  .is-clicked .navigation__item::after {
     display: block; }
-  .is-clicked .will-appear {
-    opacity: 1;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    transition: opacity 0.5s; }
-  .is-clicked .navigation {
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); }
-    .is-clicked .navigation__list_burger {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column; }
-    .is-clicked .navigation__link {
-      font-size: 1.125rem; }
-    .is-clicked .navigation__item::after {
+  .is-clicked .navigation__item {
+    margin-right: 0;
+    text-align: center; }
+    .is-clicked .navigation__item:after {
       display: block; }
-    .is-clicked .navigation__item {
-      margin-right: 0;
-      text-align: center; }
-      .is-clicked .navigation__item:after {
-        display: block; }
-    .is-clicked .navigation .navigation__item:not(:last-of-type):after {
-      margin-left: 0; }
-  .is-clicked .burger-menu {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    height: 0; }
-    .is-clicked .burger-menu::after {
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-      top: -0.03125rem; }
-    .is-clicked .burger-menu::before {
-      top: -0.03125rem;
-      -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-      transform: rotate(-45deg); }
-  .is-clicked .btn-order {
-    display: none; }
+  .is-clicked .navigation .navigation__item:not(:last-of-type):after {
+    margin-left: 0; }
+
+.is-clicked .burger-menu {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 0; }
+  .is-clicked .burger-menu::after {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -0.03125rem; }
+  .is-clicked .burger-menu::before {
+    top: -0.03125rem;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+
+.is-clicked .btn-order {
+  display: none; }
 
 .logo {
   max-width: 6.25rem;
@@ -829,7 +835,6 @@ html {
       margin-right: 1.875rem; } }
 
 .map {
-  background-size: cover;
   position: relative; }
 
 .container_map {
@@ -854,6 +859,10 @@ html {
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center; } }
+
+.ya-map {
+  width: 100%;
+  height: 100%; }
 
 .footer {
   left: 0;

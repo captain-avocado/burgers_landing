@@ -242,8 +242,10 @@ let onePageScroll = () => {
 
   $('.wrapper').on({
     wheel: e => {
-      let scrollValue = e.originalEvent.deltaY;
-      moveSection(scrollValue);
+      if (!$('body').hasClass('is-clicked')) {
+        let scrollValue = e.originalEvent.deltaY;
+        moveSection(scrollValue);
+      }
     },
     touchmove: e => (e.preventDefault())
   });
@@ -308,10 +310,89 @@ let onePageScroll = () => {
     });
   }
 }
-
 onePageScroll();
 
+ymaps.ready(init);
 
+let placemarks = [{
+    latitude: 59.933994,
+    longtitude: 30.339912,
+    hintContent: 'Невский проспект, 62',
+    // balloonContent: [
+    //   '<div class="ya-map__balloon">',
+    //   '<img src="./img/logo.png"/>',
+    //   '</div>',
+    // ],
+  },
+  {
+    latitude: 59.929073,
+    longtitude: 30.292358,
+    hintContent: 'о. Новая Голландия',
+    // balloonContent: [
+    //   '<div class="ya-map__balloon">',
+    //   '<img src="./img/logo.png"/>',
+    //   '</div>',
+    // ],
+  }, {
+    latitude: 59.951119,
+    longtitude: 30.305777,
+    hintContent: 'Кронверкский проспект, 73/39',
+    // balloonContent: [
+    //   '<div class="ya-map__balloon">',
+    //   '<img src="./img/logo.png"/>',
+    //   '</div>',
+    // ],
+  },
+];
+
+
+
+function init() {
+  let initialZoom = 12;
+  let scaledZoom = 16;
+  let map = new ymaps.Map('ya-map', {
+    center: [59.927270, 30.336667],
+    zoom: initialZoom,
+    //оставить только зум-кнопки
+    controls: ['zoomControl'],
+    //убрать приближение/отдаление по скроллу
+    behaviors: ['drag'],
+  });
+  placemarks.forEach(function(item) {
+    let placemark = new ymaps.Placemark(
+      [item.latitude, item.longtitude], {
+        hintContent: item.hintContent,
+        // balloonContent: item.balloonContent.join(''),
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: './img/icons/map-marker.svg',
+        iconImageSize: [46, 57],
+        //смещение
+        iconImageOffset: [-23, -57],
+      },
+    );
+    placemark.events.add('click', (e) => {
+      let point = [item.latitude, item.longtitude];
+      let mapBlock = $('.ya-map');
+      if (mapBlock.hasClass('active')) {
+        map.setZoom(initialZoom);
+        mapBlock.removeClass('active');
+      } else {
+        setTimeout(() => {
+          map.setZoom(scaledZoom);
+        }, 1000);
+        mapBlock.addClass('active');
+      }
+      map.panTo(point, {
+        flying: false
+      });
+      //map.setCenter(point, map.getZoom(), {duration: 1000});
+    });
+    map.geoObjects.add(placemark);
+  });
+
+}
+// ymaps.ready(init);
 // $.fn.myPlugin = function() {
 //   console.log('!!');
 // }
