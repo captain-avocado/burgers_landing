@@ -190,3 +190,8 @@
     margin-right: calculate-rem(30px);
   }
 }
+
+.popup_failure,
+.popup_success {
+  text-align: center;
+}

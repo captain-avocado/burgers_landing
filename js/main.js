@@ -4,7 +4,6 @@ $(document).ready(() => {
   let addListenerMenu = function() {
     let body = document.querySelector('body');
     let burger = document.querySelector('.burger-link');
-    // let burgerLinks = document.querySelector('.navigation__link_burger');
 
     burger.addEventListener('click', function(e) {
       e.preventDefault();
@@ -122,7 +121,10 @@ $(document).ready(() => {
   $("[data-fancybox]").fancybox({
     smallBtn: false,
     buttons: [],
+    modal: true
   });
+
+
 
 
 
@@ -312,6 +314,7 @@ let onePageScroll = () => {
 }
 onePageScroll();
 
+
 ymaps.ready(init);
 
 let placemarks = [{
@@ -392,121 +395,105 @@ function init() {
   });
 
 }
-// ymaps.ready(init);
+
+$('.form__clear').on('click', (e) => {
+  e.preventDefault();
+  $('#form').trigger('reset');
+})
+
+$('#user-phone').inputmask("+7(999)999-99-99");
+
+let ajaxForm = (form) => {
+
+  //вытаскиваем адрес сервера по атрибуту 'action'
+  let url = form.attr('action');
+  //собираем все заполненные данные из формы методом jquery serialize()
+  let data = form.serialize();
+
+  //формируем и возвращаем объект типа ajax
+  return $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    dataType: "JSON",
+  });
+
+}
+
+let submitForm = (e) => {
+
+  e.preventDefault();
+
+  //находим форму и формируем запрос
+  let form = $('#form');
+  let request = ajaxForm(form);
+  let popupSuccess = $('.popup_success');
+  let popupFailure = $('.popup_failure');
+
+
+  request.done(function(msg) {
+    switch (msg.status) {
+      case 0:
+        $.fancybox.open(
+          popupSuccess, {
+            type: 'inline',
+            smallBtn: false,
+            buttons: [],
+            afterClose() {
+              form.trigger('reset');
+            }
+          }
+        );
+        break;
+      case 1:
+        $.fancybox.open(
+          popupSuccess, {
+            type: 'inline',
+            smallBtn: false,
+            buttons: [],
+            afterClose() {
+              form.trigger('reset');
+            }
+          }
+        );
+        break;
+      default:
+        break;
+    }
+    // if (!msg.status) {
+    //   // $.fancybox.open(
+    //   //   popupSuccess, {
+    //   //     type: 'inline',
+    //   //     smallBtn: false,
+    //   //     buttons: [],
+    //   //     afterClose() {
+    //   //       form.trigger('reset');
+    //   //     }
+    //   //   }
+    //   // );
+    // } else {
+    //   // $.fancybox.open(
+    //   //   popupSuccess, {
+    //   //     type: 'inline',
+    //   //     smallBtn: false,
+    //   //     buttons: [],
+    //   //     afterClose() {
+    //   //       form.trigger('reset');
+    //   //     }
+    //   //   }
+    //   // );
+    // }
+  });
+  request.fail(function(msg) {
+    alert('Не удалось связаться с сервером! Попробуйте позже');
+  });
+
+}
+
+$('#form').on('submit', submitForm);
+
+
 // $.fn.myPlugin = function() {
 //   console.log('!!');
 // }
 // $('.link').myPlugin();
-
-
-// let sliderList = $('.slider__item');
-// let sliderSize = $('.slider__item').length;
-// for (let j = 1; j < sliderSize; j++) {
-//   sliderList[j].style.display = 'none';
-// }
-// let i = 0;
-// $('.arrow').on('click', (e) => {
-//   e.preventDefault();
-//   sliderList[i].style.display = 'none';
-//   if ($(e.currentTarget).hasClass('arrow_left')) {
-//     i--;
-//   } else {
-//     i++;
-//   }
-//   if (i < 0) {
-//     i = sliderSize - 1;
-//   }
-//   if (i == sliderSize) {
-//     i = 0;
-//   }
-//   sliderList[i].style.display = '';
-//   // if ($(e.currentTarget).hasClass('arrow_left')) {
-//   //   sliderList[i].style.animation = 'fadeInRight 1.5s'
-//   // } else {
-//   //   sliderList[i].style.animation = 'fadeInLeft 1.5s';
-//   // }
-// });
-// });
-
-// //недослайдер v2
-// let wh = window.outerWidth;
-// let sliderList = $('.slider__item');
-// let sliderSize = $('.slider__item').length;
-// let cont = document.querySelector('.container_info');
-// cont.style.position = 'relative';
-//
-// for (let j = 0; j < sliderSize; j++) {
-//   sliderList[j].style.position = 'absolute';
-//   sliderList[j].style.left = (wh * j) + 'px';
-// }
-// let i = 0;
-// $('.arrow').on('click', (e) => {
-//   e.preventDefault();
-//
-//   if ($(e.currentTarget).hasClass('arrow_left')) {
-//     sliderList[i].style.left = -wh + 'px';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i--;
-//
-//   } else {
-//     sliderList[i].style.left = wh + 'px';
-//     sliderList[i].style.transition = 'left 2s';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i++;
-//   }
-//
-//   if (i < 0) {
-//     i = sliderSize - 1;
-//   }
-//   if (i == sliderSize) {
-//     i = 0;
-//   }
-//   sliderList[i].style.left = 0;
-//   sliderList[i].style.opacity = 1;
-//   sliderList[i].style.transition = 'left 2s, opacity 2s';
-//
-// });
-// });
-//недослайдер v2
-
-// let wh = window.outerWidth;
-// let sliderList = $('.slider__item');
-// let sliderSize = $('.slider__item').length;
-// let cont = document.querySelector('.container_info');
-// cont.style.position = 'relative';
-//
-// for (let j = 0; j < sliderSize; j++) {
-//   sliderList[j].style.position = 'absolute';
-//   sliderList[j].style.left = (wh * j) + 'px';
-// }
-// let i = 0;
-// $('.arrow').on('click', (e) => {
-//   e.preventDefault();
-//
-//   if ($(e.currentTarget).hasClass('arrow_left')) {
-//     sliderList[i].style.left = -wh + 'px';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i--;
-//
-//   } else {
-//     sliderList[i].style.left = wh + 'px';
-//     sliderList[i].style.transition = 'left 2s';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i++;
-//   }
-//
-//   if (i < 0) {
-//     i = sliderSize - 1;
-//   }
-//   if (i == sliderSize) {
-//     i = 0;
-//   }
-//   sliderList[i].style.left = 0;
-//   sliderList[i].style.opacity = 1;
-//   sliderList[i].style.transition = 'left 2s, opacity 2s';
-//
-// });
