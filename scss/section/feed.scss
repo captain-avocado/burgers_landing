@@ -4,86 +4,78 @@
   width: 100%;
   height: 100%;
 
-  .feed__item {
-    flex-basis: 25%;
+  &__item {
+    width: 25%;
+    height: 50%;
     background-position: 50% 50%;
     background-size: cover;
-    height: 50%;
     filter: grayscale(1);
-
-    .feed__overlay {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .feed__overlay:hover {
-      background-color: rgba(20, 20, 20, .5);
-      transition: background-color 0.5s;
+    @include tablets {
+      width: 50%;
+      height: 25%;
     }
 
     &:hover .feed__about {
       opacity: 1;
       transition: opacity 0.3s;
     }
+  }
 
-    .feed__img {
-      visibility: hidden;
-      display: block;
-      position: absolute;
-      left: -9999px;
-    }
-    // .feed__link {
-    //   display: block;
-    //   width: 100%;
-    //   height: 100%;
-    //   color: $white;
-    //   text-decoration: none;
-    // &:hover {
-    //   background: rgba(0, 0, 0, .5);
-    //   transition: 0.3s;
-    // }
-    //
-    // &:hover .feed__about {
-    //   opacity: 1;
-    //   transition: 0.3s;
-    // }
-    //}
-    .feed__link:hover .feed__about {
-      opacity: 1;
-      transition: 0.3s;
-    }
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    display: block;
 
-    .feed__about {
+    &:hover {
+      background-color: rgba(20, 20, 20, .5);
+      transition: background-color 0.5s;
+    }
+  }
+
+  &__img {
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    left: calculate-rem(-9999px);
+  }
+
+  &__link:hover .feed__about {
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  &__about {
+    height: 100%;
+    opacity: 0;
+    font-family: 'ubuntu';
+    color: $white;
+    font-size: calculate-rem(14px);
+    padding: calculate-rem(20px);
+    @include tablets {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      font-family: 'ubuntu';
-      color: $white;
-      font-size: calculate-rem(14px);
-      padding: calculate-rem(20px);
-      // .feed__link {
-      //   display: block;
-      //   width: 100%;
-      //   height: 100%;
-      //   color: $white;
-      //   text-decoration: none;
-      .feed__title {
-        font-family: "gagalin";
-        margin-bottom: 30px;
-      }
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
 
-      .feed__text {
-        margin-bottom: 16px;
-      }
+  &__title {
+    font-family: "gagalin";
+    margin-bottom: calculate-rem(30px);
+    @include tablets {
+      margin-bottom: calculate-rem(10px);
+    }
+  }
 
-      .btn-more {
-        @include btn(110px, 35px, $black, $white);
-        // }
-      }
+  &__text {
+    margin-bottom: calculate-rem(16px);
+    @include phones {
+      display: none;
     }
   }
 }
-/////.DS_Store
+
+.btn-more {
+  @include btn(calculate-rem(10px), calculate-rem(15px), $black, $white);
+}

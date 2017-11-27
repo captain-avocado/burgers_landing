@@ -1,0 +1,106 @@
+.map {
+  background-size: cover;
+  position: relative;
+}
+
+.container_map {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  @include phones {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  height: calculate-rem(60px);
+  @include phones {
+    height: calculate-rem(120px);
+  }
+}
+
+.footer__left-col,
+.footer__right-col {
+  width: 50%;
+  height: 100%;
+  @include phones {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.footer__left-col {
+  @include phones {
+    text-align: center;
+    margin-bottom: calculate-rem(20px);
+  }
+}
+
+.address {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calculate-rem(14px);
+  font-family: 'ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  white-space: nowrap;
+
+  &__place {
+    color: $white;
+  }
+
+  &__tel {
+    text-decoration: none;
+    color: $orange;
+  }
+
+  &__tel-icon {
+    fill: $orange;
+    width: calculate-rem(12px);
+    height: calculate-rem(11px);
+    margin-right: calculate-rem(4px);
+  }
+}
+
+.social {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  @include phones {
+    justify-content: center;
+  }
+
+  &__item {
+    width: calculate-rem(20px);
+    height: calculate-rem(20px);
+
+    &:not(:last-of-type) {
+      margin-right: calculate-rem(20px);
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.icon {
+  fill: $gray;
+  width: calculate-rem(20px);
+  height: calculate-rem(20px);
+
+  &:hover {
+    fill: $white;
+    transition: fill 0.3s;
+  }
+}

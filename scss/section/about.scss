@@ -1,45 +1,96 @@
 .about {
-  // background-image: url('/img/bg/best-bg.jpg');
+  display: flex;
+  align-items: center;
   background-size: cover;
+  @include phones {
+    background-position: center;
+  }
 }
 
 .title {
   color: $black;
   font-family: 'gagalin';
-  @include font-size(72px);
+  font-size: calculate-rem(72px);
   text-align: center;
-  padding-top: calculate-rem(80px);
   margin-bottom: calculate-rem(90px);
+  @include phones {
+    margin-bottom: calculate-rem(40px);
+  }
+
+  &_about {
+    @include phones-small {
+      font-size: calculate-rem(50px);
+    }
+  }
 }
 
 .advantages {
   display: flex;
   margin-left: calculate-rem(-14px);
-  // flex-wrap: wrap;
-  .advantages__item {
+  @include tablets {
+    margin: 0 calculate-rem(20px);
+  }
+  @include phones {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  &__item {
     flex: 1;
     text-align: center;
     color: $black;
-    margin-right: 20px;
-
-    .advantages__img {
-      overflow: hidden;
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 24px;
-      background: center center no-repeat;
+    @include phones {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .advantages__title {
-      font-family: 'lifehack';
-      font-size: calculate-rem(24px);
-      margin-bottom: calculate-rem(16px);
+    &:not(:last-of-type) {
+      margin-right: calculate-rem(20px);
+      @include phones {
+        margin: 0 0 calculate-rem(20px);
+      }
+      @include phones-small {
+        margin-bottom: calculate-rem(32px);
+      }
     }
+  }
 
-    .advantages__text {
-      font-family: 'ubuntu';
-      font-weight: 100;
-      font-size: calculate-rem(14px);
+  &__img {
+    // width: calculate-rem(100px);
+    // height: calculate-rem(100px);
+    margin: 0 auto calculate-rem(24px);
+    background: center center no-repeat;
+    @include phones {
+      margin: 0;
+      display: inline-flex;
+      height: 25%;
+      width: 25%;
+    }
+  }
+
+  &__text-area {
+    @include phones {
+      width: 65%;
+      text-align: left;
+    }
+    @include phones-small {
+      width: 60%;
+    }
+  }
+
+  &__title {
+    font-family: 'lifehack';
+    font-size: calculate-rem(24px);
+    margin-bottom: calculate-rem(16px);
+  }
+
+  &__text {
+    font-family: 'ubuntu';
+    font-weight: 100;
+    font-size: calculate-rem(14px);
+    @include phones-small {
+      font-size: calculate-rem(12px);
     }
   }
 }

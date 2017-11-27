@@ -1,0 +1,74 @@
+.menu {
+  background-size: cover;
+  display: flex;
+  position: relative;
+}
+
+.title_menu {
+  font-family: "gagalin";
+  font-size: calculate-rem(72px);
+  color: $white;
+  margin-top: calculate-rem(100px);
+  margin-left: calculate-rem(80px);
+  @include phones {
+    // margin-top: calculate-rem(60px);
+    // margin-left: calculate-rem(40px);
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    font-size: 3.5rem;
+  }
+}
+
+.accordeon_menu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+}
+
+.accordeon__item_menu {
+  height: 100%;
+  display: flex;
+}
+
+.is-active {
+  .burg-descr {
+    width: calculate-rem(540px);
+    padding: calculate-rem(60px) calculate-rem(35px);
+    @include tablets {
+      width: calculate-rem(270px);
+    }
+  }
+}
+
+.burg-descr {
+  width: 0;
+  background-color: $gray-bg;
+  color: $white;
+  font-size: calculate-rem(14px);
+  font-family: 'ubuntu';
+  font-weight: 100;
+}
+
+.accordeon__item-link {
+  text-decoration: none;
+  background-size: cover;
+  width: calculate-rem(80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  @include phones {
+    width: calculate-rem(64px);
+  }
+}
+
+.accordeon__title_menu {
+  font-family: 'gagalin';
+  color: $white;
+  font-size: calculate-rem(40px);
+  transform: rotate(-90deg);
+  text-align: center;
+  white-space: nowrap;
+}

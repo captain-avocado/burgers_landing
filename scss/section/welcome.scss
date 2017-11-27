@@ -1,17 +1,17 @@
 .welcome {
-  // background-image: url('../../img/bg/intro-bg.jpg');
   background-size: cover;
 }
 
-.container {
-  width: calculate-rem(940px);
-  margin: 0 auto;
+.container_welcome {
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .header {
-  // width: 100%;
-  height: calculate-rem(90px);
-  // margin-top: calculate-rem(10px);
+  // height: calculate-rem(90px);
+  // height: 90px;
+  padding: calculate-rem(20px) 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,20 +22,23 @@
   max-height: calculate-rem(70px);
   margin-right: auto;
 
-  .logo__link {
+  &__link {
     display: flex;
     width: 100%;
     height: 100%;
   }
 }
 
-.navigation__list {
-  display: flex;
-  justify-content: center;
-  // font-family: 'ubuntulight';
-  // @include font-size(13px);
-  // text-transform: uppercase;
-  .navigation__item {
+.navigation {
+  &__list {
+    display: flex;
+    justify-content: center;
+    @include tablets {
+      display: none;
+    }
+  }
+
+  &__item {
     margin-right: calculate-rem(12px);
 
     &:not(:last-of-type):after {
@@ -43,85 +46,123 @@
       color: $white;
       margin-left: calculate-rem(14px);
     }
+  }
 
-    .navigation__link {
-      font-family: 'ubuntu';
-      font-size: calculate-rem(14px);
-      font-weight: 500;
-      text-transform: uppercase;
-      color: $white;
-      text-decoration: none;
-    }
+  &__link {
+    font-family: 'ubuntu';
+    font-size: calculate-rem(14px);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $white;
+    text-decoration: none;
   }
 }
-// .btn-order {
-//   min-width: calculate-rem(100px);
-//   min-height: calculate-rem(35px);
-//   background-color: $orange;
-//
-//   .btn-order__link {
-//     font-family: 'ubuntu';
-//     font-size: calculate-rem(14px);
-//     font-weight: 500;
-//     text-transform: uppercase;
-//     color: $white;
-//     text-decoration: none;
-//     display: flex;
-//     width: 100%;
-//     height: 100%;
-//
-//     .btn-order__text {
-//       margin: auto;
-//     }
-//   }
-// }
 
 .btn-order {
-  @include btn(100px, 35px, $orange, $white);
-  // display: block;
-  // min-width: calculate-rem(100px);
-  // min-height: calculate-rem(35px);
-  // background-color: $orange;
-  // font-family: 'ubuntu';
-  // font-size: calculate-rem(14px);
-  // font-weight: 500;
-  // text-transform: uppercase;
-  // color: $white;
-  // text-decoration: none;
-  // text-align: center;
-  // line-height: calculate-rem(35px);
-  // border-radius: calculate-rem(3px);
+  @include btn(calculate-rem(10px), calculate-rem(15px), $orange, $white);
+}
+
+.burger-menu {
+  display: none;
+  @include tablets {
+    display: block;
+  }
+  width: calculate-rem(24px);
+  height: calculate-rem(4px);
+  background-color: $white;
+  border-radius: calculate-rem(2px);
+  margin-left: calculate-rem(30px);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calculate-rem(9px);
+    display: block;
+    width: calculate-rem(24px);
+    height: calculate-rem(4px);
+    background-color: $white;
+    border-radius: calculate-rem(2px);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: calculate-rem(9px);
+    display: block;
+    width: calculate-rem(24px);
+    height: calculate-rem(4px);
+    background-color: $white;
+    border-radius: calculate-rem(2px);
+  }
 }
 
 .intro {
   display: flex;
-  margin: auto;
-  justify-content: center;
-  align-items: flex-end;
+  flex: 1;
+  margin-bottom: 8%;
+  align-items: center;
+  @include tablets {
+    flex-direction: column;
+    justify-content: center;
+  }
+  @include phones {
+    margin-bottom: 0;
+  }
 
-  .intro__text-area {
-    max-width: calculate-rem(410px);
-    margin-bottom: calculate-rem(40px);
-
-    .intro__title-who {
-      text-transform: uppercase;
-      color: $yellow;
-      font-family: 'gagalin';
-      @include font-size(64px);
+  &__img {
+    max-width: 100%;
+    max-height: 100%;
+    @include tablets {
+      max-width: 100%;
+      max-height: 100%;
     }
+    @include phones {
+      max-width: 80%;
+      max-height: 80%;
+    }
+  }
 
-    .intro__title-what {
-      color: $white;
-      font-family: 'lifehack';
-      @include font-size(52px);
+  &__text-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: calculate-rem(410px);
+    margin-top: calculate-rem(90px);
+    @include tablets {
+      text-align: center;
+    }
+    @include phones {
+      margin: 0;
+    }
+  }
+
+  &__title-who {
+    text-transform: uppercase;
+    color: $yellow;
+    font-family: 'gagalin';
+    font-size: calculate-rem(72px);
+    @include phones-small {
+      font-size: calculate-rem(56px);
+    }
+  }
+
+  &__title-what {
+    color: $white;
+    font-family: 'lifehack';
+    font-size: calculate-rem(64px);
+    line-height: 1;
+    @include phones-small {
+      font-size: calculate-rem(3*16px);
     }
   }
 }
 
 .forward {
-  width: 29px;
-  height: 14px;
-  display: flex;
-  margin: calculate-rem(90px) auto auto;
-  display: flex;
+  width: calculate-rem(29px);
+  height: calculate-rem(14px);
+  margin: 0 auto calculate-rem(50px);
+  @include tablets {
+    margin-bottom: calculate-rem(40px);
+  }
 }

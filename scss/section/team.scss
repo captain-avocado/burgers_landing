@@ -1,0 +1,162 @@
+.team {
+  background-size: cover;
+  position: relative;
+}
+
+.holding-overlay {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  @include tablets {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.color-overlay {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: $gray-bg;
+  opacity: 0.8;
+  @include tablets {
+    width: 100%;
+  }
+}
+
+.descr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-left: calculate-rem(80px);
+  margin-top: calculate-rem(90px);
+  @include tablets {
+    align-items: center;
+    margin: 0;
+  }
+
+  &__title {
+    font-family: 'gagalin';
+    font-size: calculate-rem(72px);
+    color: $yellow;
+    margin-bottom: calculate-rem(90px);
+  }
+}
+
+.accordeon {
+  &__item {
+    margin-bottom: calculate-rem(30px);
+    color: $white;
+    margin-top: calculate-rem(8px);
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: $white;
+  }
+
+  &__name {
+    font-family: 'gagalin';
+    font-size: calculate-rem(14px);
+    @include tablets {
+      font-size: calculate-rem(24px);
+      text-align: center;
+    }
+  }
+}
+
+.accordeon__name::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: calculate-rem(5px) solid transparent;
+  border-right: calculate-rem(5px) solid transparent;
+  border-top: calculate-rem(6px) solid $yellow;
+  border-bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: calculate-rem(10px);
+}
+
+.is-active {
+  .accordeon__name {
+    color: $yellow;
+
+    &::before {
+      border-left: calculate-rem(5px) solid transparent;
+      border-right: calculate-rem(5px) solid transparent;
+      border-bottom: calculate-rem(6px) solid $yellow;
+      border-top: 0;
+    }
+  }
+
+  .overview {
+    height: auto;
+    overflow: auto;
+    margin-top: calculate-rem(15px);
+    margin-left: calculate-rem(16px);
+    @include tablets {
+      margin-left: 0;
+    }
+  }
+}
+
+.overview {
+  height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  margin-left: 0;
+  display: flex;
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__avatar {
+    width: calculate-rem(100px);
+    height: calculate-rem(100px);
+    border-radius: 50%;
+    overflow: hidden;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    @include tablets {
+      margin-bottom: calculate-rem(20px);
+    }
+  }
+
+  &__img {
+    visibility: hidden;
+  }
+
+  &__text-area {
+    width: calculate-rem(240px);
+    margin-left: calculate-rem(20px);
+    font-family: 'ubuntu';
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include tablets {
+      text-align: center;
+      margin-left: 0;
+    }
+  }
+
+  &__position {
+    font-size: calculate-rem(14px);
+    font-weight: 500;
+    @include tablets {
+      margin-bottom: calculate-rem(20px);
+    }
+  }
+
+  &__text {
+    font-weight: 100;
+  }
+}
