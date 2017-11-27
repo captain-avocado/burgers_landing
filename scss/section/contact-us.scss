@@ -179,7 +179,8 @@
 }
 
 .btn-order {
-  border: none;
+    border: none;
+    outline: none;
 }
 
 .form__clear {
@@ -189,4 +190,9 @@
   @include phones {
     margin-right: calculate-rem(30px);
   }
+}
+
+.popup_failure,
+.popup_success {
+  text-align: center;
 }

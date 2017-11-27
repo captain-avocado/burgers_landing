@@ -184,6 +184,7 @@
   }
 
   &__img {
+      width: calculate-rem(40px) !important; 
     margin-right: calculate-rem(20px);
   }
 

@@ -3,13 +3,18 @@ $(document).ready(() => {
   //native js code
   let addListenerMenu = function() {
     let body = document.querySelector('body');
-    console.log(body);
     let burger = document.querySelector('.burger-link');
-    console.log(burger);
 
-    burger.addEventListener('click', function() {
+    burger.addEventListener('click', function(e) {
+      e.preventDefault();
       body.classList.toggle('is-clicked');
     });
+
+    $('.navigation__link_burger').on('click', function(e) {
+      e.preventDefault();
+      $(body).removeClass('is-clicked');
+    });
+
   };
   addListenerMenu();
 
@@ -116,7 +121,10 @@ $(document).ready(() => {
   $("[data-fancybox]").fancybox({
     smallBtn: false,
     buttons: [],
+    modal: true
   });
+
+
 
 
 
@@ -184,124 +192,328 @@ $(document).ready(() => {
 
 
 
+//onePageScroll(
+let onePageScroll = () => {
+  let inScroll = false;
+
+  let defineSections = (sections) => {
+    let curSection = $('.section').filter('.active');
+    return {
+      curSection: curSection,
+      nextSection: curSection.next(),
+      prevSection: curSection.prev(),
+    }
+  }
+
+  let transformCSS = function(index) {
+    let number = -(index * 100) + '%';
+    $('.content').css({
+      'transform': `translate(0, ${number})`,
+      '-webkit-transform': `translate(0, ${number})`,
+    });
+  }
+
+  let moveSection = (scrollValue) => {
+    let sections = defineSections();
+    let index = sections.curSection.index();
+    let pointItem = $('.point-menu__item');
+
+    if (!inScroll) {
+      inScroll = true;
+      if (scrollValue > 0 && sections.nextSection.length) {
+        pointItem.eq(index).removeClass('point-active');
+        index++;
+        pointItem.eq(index).addClass('point-active');
+        transformCSS(index);
+      }
+      if (scrollValue < 0 && sections.prevSection.length) {
+        pointItem.eq(index).removeClass('point-active');
+        index--;
+        pointItem.eq(index).addClass('point-active');
+        transformCSS(index);
+      }
+
+      setTimeout(() => {
+        inScroll = false;
+        if (scrollValue > 0 && sections.nextSection.length) {
+          sections.nextSection.addClass('active');
+          sections.curSection.removeClass('active');
+        }
+        if (scrollValue < 0 && sections.prevSection.length) {
+          sections.prevSection.addClass('active');
+          sections.curSection.removeClass('active');
+        }
+      }, 1300);
+    }
+  }
+
+  $('.wrapper').on({
+    wheel: e => {
+      if (!$('body').hasClass('is-clicked')) {
+        let scrollValue = e.originalEvent.deltaY;
+        moveSection(scrollValue);
+      }
+    },
+    touchmove: e => (e.preventDefault())
+  });
+
+  $('body').on('keydown', (e) => {
+    let keyCode = e.keyCode;
+
+    switch (keyCode) {
+      case 40:
+        moveSection(1);
+        break;
+      case 38:
+        moveSection(-1);
+        break;
+      default:
+        break;
+    }
+  });
+
+  $('.navigation__link').on('click', (e) => {
+    e.preventDefault;
+    let index = $(e.currentTarget).parent().index();
+    if (index === 5) index++;
+    transformCSS(++index);
+    $('.section').eq(0).removeClass('active');
+    $('.section').eq(index).addClass('active');
+  });
+    
+    $('[data-scroll-to]').on('click', (e) => {
+        //останавливаем поведение по умолчанию
+        e.preventDefault();
+        //находим активный элемент списка и элемент, на который кликнули
+        let clickedItem = $(e.currentTarget).parent();
+        //если выбранный элемент уже в активном состоянии, то обработчик заканчивает свое действие 
+        if (clickedItem.hasClass('point-active')) return true;
+        //находим активную в данный момент секцию и снимаем активный класс
+        $('.section').filter('.active').removeClass('active');
+        $('.point-active').removeClass('point-active');
+        clickedItem.addClass('active');
+        $('.section').eq(clickedItem.index()).addClass('active');
+        transformCSS(clickedItem.index());
+    });
+
+  $('.btn-order').on('click', (e) => {
+    e.preventDefault;
+    transformCSS(6);
+    if ($(e.currentTarget).hasClass('btn-order_welcome')) {
+      let initialIndex = $('.section').filter('.welcome').index();
+      $('.section').eq(initialIndex).removeClass('active');
+    }
+    if ($(e.currentTarget).hasClass('btn-order_offer')) {
+      let initialIndex = $('.section').filter('.offer').index();
+      $('.section').eq(initialIndex).removeClass('active');
+    }
+    $('.section').eq(6).addClass('active');
+  });
+
+  $('.forward').on('click', (e) => {
+    e.preventDefault();
+    transformCSS(1);
+    $('.section').eq(0).removeClass('active');
+    $('.section').eq(1).addClass('active');
+
+  });
+
+  const mobileDetect = new MobileDetect(window.navigator.userAgent);
+  const isMobile = mobileDetect.mobile();
+
+  if (isMobile) {
+    console.log('true');
+    $('body').swipe({
+      swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+        console.log(direction);
+        if (direction === 'up') moveSection(1);
+        if (direction === 'down') moveSection(-1);
+      }
+    });
+  }
+}
+onePageScroll();
 
 
+ymaps.ready(init);
+
+let placemarks = [{
+    latitude: 59.933994,
+    longtitude: 30.339912,
+    hintContent: 'Невский проспект, 62',
+    // balloonContent: [
+    //   '<div class="ya-map__balloon">',
+    //   '<img src="./img/logo.png"/>',
+    //   '</div>',
+    // ],
+  },
+  {
+    latitude: 59.929073,
+    longtitude: 30.292358,
+    hintContent: 'о. Новая Голландия',
+    // balloonContent: [
+    //   '<div class="ya-map__balloon">',
+    //   '<img src="./img/logo.png"/>',
+    //   '</div>',
+    // ],
+  }, {
+    latitude: 59.951119,
+    longtitude: 30.305777,
+    hintContent: 'Кронверкский проспект, 73/39',
+    // balloonContent: [
+    //   '<div class="ya-map__balloon">',
+    //   '<img src="./img/logo.png"/>',
+    //   '</div>',
+    // ],
+  },
+];
+
+
+
+function init() {
+  let initialZoom = 12;
+  let scaledZoom = 16;
+  let map = new ymaps.Map('ya-map', {
+    center: [59.927270, 30.336667],
+    zoom: initialZoom,
+    //оставить только зум-кнопки
+    controls: ['zoomControl'],
+    //убрать приближение/отдаление по скроллу
+    behaviors: ['drag'],
+  });
+  placemarks.forEach(function(item) {
+    let placemark = new ymaps.Placemark(
+      [item.latitude, item.longtitude], {
+        hintContent: item.hintContent,
+        // balloonContent: item.balloonContent.join(''),
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: './img/icons/map-marker.svg',
+        iconImageSize: [46, 57],
+        //смещение
+        iconImageOffset: [-23, -57],
+      },
+    );
+    placemark.events.add('click', (e) => {
+      let point = [item.latitude, item.longtitude];
+      let mapBlock = $('.ya-map');
+      if (mapBlock.hasClass('active')) {
+        map.setZoom(initialZoom);
+        mapBlock.removeClass('active');
+      } else {
+        setTimeout(() => {
+          map.setZoom(scaledZoom);
+        }, 1000);
+        mapBlock.addClass('active');
+      }
+      map.panTo(point, {
+        flying: false
+      });
+      //map.setCenter(point, map.getZoom(), {duration: 1000});
+    });
+    map.geoObjects.add(placemark);
+  });
+
+}
+
+$('.form__clear').on('click', (e) => {
+  e.preventDefault();
+  $('#form').trigger('reset');
+})
+
+$('#user-phone').inputmask("+7(999)999-99-99");
+
+let ajaxForm = (form) => {
+
+  //вытаскиваем адрес сервера по атрибуту 'action'
+  let url = form.attr('action');
+  //собираем все заполненные данные из формы методом jquery serialize()
+  let data = form.serialize();
+
+  //формируем и возвращаем объект типа ajax
+  return $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    dataType: "JSON",
+  });
+
+}
+
+let submitForm = (e) => {
+
+  e.preventDefault();
+
+  //находим форму и формируем запрос
+  let form = $('#form');
+  let request = ajaxForm(form);
+  let popupSuccess = $('.popup_success');
+  let popupFailure = $('.popup_failure');
+
+
+  request.done(function(msg) {
+    switch (msg.status) {
+      case 0:
+        $.fancybox.open(
+          popupSuccess, {
+            type: 'inline',
+            smallBtn: false,
+            buttons: [],
+            afterClose() {
+              form.trigger('reset');
+            }
+          }
+        );
+        break;
+      case 1:
+        $.fancybox.open(
+          popupSuccess, {
+            type: 'inline',
+            smallBtn: false,
+            buttons: [],
+            afterClose() {
+              form.trigger('reset');
+            }
+          }
+        );
+        break;
+      default:
+        break;
+    }
+    // if (!msg.status) {
+    //   // $.fancybox.open(
+    //   //   popupSuccess, {
+    //   //     type: 'inline',
+    //   //     smallBtn: false,
+    //   //     buttons: [],
+    //   //     afterClose() {
+    //   //       form.trigger('reset');
+    //   //     }
+    //   //   }
+    //   // );
+    // } else {
+    //   // $.fancybox.open(
+    //   //   popupSuccess, {
+    //   //     type: 'inline',
+    //   //     smallBtn: false,
+    //   //     buttons: [],
+    //   //     afterClose() {
+    //   //       form.trigger('reset');
+    //   //     }
+    //   //   }
+    //   // );
+    // }
+  });
+  request.fail(function(msg) {
+    alert('Не удалось связаться с сервером! Попробуйте позже');
+  });
+
+}
+
+$('#form').on('submit', submitForm);
 
 
 // $.fn.myPlugin = function() {
 //   console.log('!!');
 // }
 // $('.link').myPlugin();
-
-
-// let sliderList = $('.slider__item');
-// let sliderSize = $('.slider__item').length;
-// for (let j = 1; j < sliderSize; j++) {
-//   sliderList[j].style.display = 'none';
-// }
-// let i = 0;
-// $('.arrow').on('click', (e) => {
-//   e.preventDefault();
-//   sliderList[i].style.display = 'none';
-//   if ($(e.currentTarget).hasClass('arrow_left')) {
-//     i--;
-//   } else {
-//     i++;
-//   }
-//   if (i < 0) {
-//     i = sliderSize - 1;
-//   }
-//   if (i == sliderSize) {
-//     i = 0;
-//   }
-//   sliderList[i].style.display = '';
-//   // if ($(e.currentTarget).hasClass('arrow_left')) {
-//   //   sliderList[i].style.animation = 'fadeInRight 1.5s'
-//   // } else {
-//   //   sliderList[i].style.animation = 'fadeInLeft 1.5s';
-//   // }
-// });
-// });
-
-// //недослайдер v2
-// let wh = window.outerWidth;
-// let sliderList = $('.slider__item');
-// let sliderSize = $('.slider__item').length;
-// let cont = document.querySelector('.container_info');
-// cont.style.position = 'relative';
-//
-// for (let j = 0; j < sliderSize; j++) {
-//   sliderList[j].style.position = 'absolute';
-//   sliderList[j].style.left = (wh * j) + 'px';
-// }
-// let i = 0;
-// $('.arrow').on('click', (e) => {
-//   e.preventDefault();
-//
-//   if ($(e.currentTarget).hasClass('arrow_left')) {
-//     sliderList[i].style.left = -wh + 'px';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i--;
-//
-//   } else {
-//     sliderList[i].style.left = wh + 'px';
-//     sliderList[i].style.transition = 'left 2s';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i++;
-//   }
-//
-//   if (i < 0) {
-//     i = sliderSize - 1;
-//   }
-//   if (i == sliderSize) {
-//     i = 0;
-//   }
-//   sliderList[i].style.left = 0;
-//   sliderList[i].style.opacity = 1;
-//   sliderList[i].style.transition = 'left 2s, opacity 2s';
-//
-// });
-// });
-//недослайдер v2
-
-// let wh = window.outerWidth;
-// let sliderList = $('.slider__item');
-// let sliderSize = $('.slider__item').length;
-// let cont = document.querySelector('.container_info');
-// cont.style.position = 'relative';
-//
-// for (let j = 0; j < sliderSize; j++) {
-//   sliderList[j].style.position = 'absolute';
-//   sliderList[j].style.left = (wh * j) + 'px';
-// }
-// let i = 0;
-// $('.arrow').on('click', (e) => {
-//   e.preventDefault();
-//
-//   if ($(e.currentTarget).hasClass('arrow_left')) {
-//     sliderList[i].style.left = -wh + 'px';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i--;
-//
-//   } else {
-//     sliderList[i].style.left = wh + 'px';
-//     sliderList[i].style.transition = 'left 2s';
-//     sliderList[i].style.opacity = 0;
-//     sliderList[i].style.transition = 'left 2s, opacity 2s';
-//     i++;
-//   }
-//
-//   if (i < 0) {
-//     i = sliderSize - 1;
-//   }
-//   if (i == sliderSize) {
-//     i = 0;
-//   }
-//   sliderList[i].style.left = 0;
-//   sliderList[i].style.opacity = 1;
-//   sliderList[i].style.transition = 'left 2s, opacity 2s';
-//
-// });

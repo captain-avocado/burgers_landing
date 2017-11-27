@@ -16,9 +16,12 @@
 }
 
 .is-clicked {
-  overflow: hidden;
-
+  // overflow: hidden;
+  // .content {
+  //   overflow: hidden;
+  // }
   .container_welcome {
+    // overflow: hidden;
     background: rgba($gray, .8);
     transition: background 0.3s;
     margin: 0;

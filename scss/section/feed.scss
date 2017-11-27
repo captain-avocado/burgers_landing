@@ -148,4 +148,10 @@
       transform: rotate(90deg);
     }
   }
+    @include phones {
+        width: calculate-rem(250px);
+        p {
+        font-size: .65rem;
+        }
+    }
 }

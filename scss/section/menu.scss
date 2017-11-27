@@ -33,6 +33,9 @@
 }
 
 .is-active {
+    .accordeon__title_menu {
+      color: $yellow;
+    }
   .burg-descr {
     width: calculate-rem(540px);
     font-size: calculate-rem(14px);

@@ -27,6 +27,7 @@
   color: $color;
   text-decoration: none;
   border-radius: calculate-rem(3px);
+  outline: none;
 }
 @mixin tablets {
    @media screen and (max-width: $tablets){

@@ -21,7 +21,7 @@
 <body>
   <div class="wrapper">
     <div class="content">
-      <section class="section welcome" style="background-image: url('img/bg/intro-bg.jpg')">
+      <section class="section welcome active" style="background-image: url('img/bg/intro-bg.jpg')">
         <div class="container container_welcome">
           <header class="header">
             <div class="logo">
@@ -39,19 +39,19 @@
                 <li class="navigation__item"><a href="#" class="navigation__link">контакты</a></li>
               </ul>
             </nav>
-            <a href="#" class="btn-order">заказать</a>
+            <a href="#" class="btn-order btn-order_welcome">заказать</a>
             <a href="#" class="burger-link">
               <div class="burger-menu"></div>
             </a>
           </header>
           <nav class="navigation navigation_burger">
             <ul class="navigation_list navigation_list_burger">
-              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link">почему мы</a></li>
-              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link">меню</a></li>
-              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link">советы</a></li>
-              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link">кто мы</a></li>
-              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link">свяжитесь с нами</a></li>
-              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link">контакты</a></li>
+              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link navigation__link_burger">о нас</a></li>
+              <li class="navigation__item navigation__item_burger"><a href="#" class=" navigation__link navigation__link_burger">бургеры</a></li>
+              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link navigation__link_burger">команда</a></li>
+              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link navigation__link_burger">меню</a></li>
+              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link navigation__link_burger">отзывы</a></li>
+              <li class="navigation__item navigation__item_burger"><a href="#" class="navigation__link navigation__link_burger">контакты</a></li>
             </ul>
           </nav>
           <div class="intro">
@@ -171,64 +171,6 @@
                 </ul>
               </div>
               </a>
-                  <!-- <div class="dropdown">
-                <ul class="ingredients">
-                  <li class="ingredients__item">
-                    <div class="ingredients__left-col">
-                      <img src="img/icons/beef.svg" alt="" class="ingredients__img">
-                      <div class="ingredients__name">Говядина</div>
-                    </div>
-                    <div class="ingredients__right-col">
-                      <div class="ingredients__weight">300 г</div>
-                    </div>
-                  </li>
-                  <li class="ingredients__item">
-                    <div class="ingredients__left-col">
-                      <img src="img/icons/buns.svg" alt="" class="ingredients__img">
-                      <div class="ingredients__name">Булочки</div>
-                    </div>
-                    <div class="ingredients__right-col">
-                      <div class="ingredients__weight">100 г</div>
-                    </div>
-                  </li>
-                  <li class="ingredients__item">
-                    <div class="ingredients__left-col">
-                      <img src="img/icons/salad.svg" alt="" class="ingredients__img">
-                      <div class="ingredients__name">Зелень</div>
-                    </div>
-                    <div class="ingredients__right-col">
-                      <div class="ingredients__weight">70 г</div>
-                    </div>
-                  </li>
-                  <li class="ingredients__item">
-                    <div class="ingredients__left-col">
-                      <img src="img/icons/sauce.svg" alt="" class="ingredients__img">
-                      <div class="ingredients__name">Соус</div>
-                    </div>
-                    <div class="ingredients__right-col">
-                      <div class="ingredients__weight">150 г</div>
-                    </div>
-                  </li>
-                  <li class="ingredients__item">
-                    <div class="ingredients__left-col">
-                      <img src="img/icons/cucumber.svg" alt="" class="ingredients__img">
-                      <div class="ingredients__name">Овощи</div>
-                    </div>
-                    <div class="ingredients__right-col">
-                      <div class="ingredients__weight">200 г</div>
-                    </div>
-                  </li>
-                  <li class="ingredients__item">
-                    <div class="ingredients__left-col">
-                      <img src="img/icons/cheese.svg" alt="" class="ingredients__img">
-                      <div class="ingredients__name">Сыр</div>
-                    </div>
-                    <div class="ingredients__right-col">
-                      <div class="ingredients__weight">80 г</div>
-                    </div>
-                  </li>
-                </ul>
-              </div> -->
                 </div>
                 <div class="avatar-part__wrap">
                   <img src="img/bg/burger-bg1.png" alt="burger" class="avatar-part__img">
@@ -248,7 +190,7 @@
                     <div class="text-part__num">500</div>
                     <div class="text-part__rub">рублей</div>
                   </div>
-                  <a href="#" class="btn-order">заказать</a>
+                  <a href="#" class="btn-order btn-order_offer">заказать</a>
                 </div>
               </div>
             </div>
@@ -796,40 +738,40 @@
       <section class="section contact-us" style="background-image: url('img/bg/contact-bg.jpg')">
         <div class="container container_contact-us">
           <div class="title title_contact-us">закажите доставку</div>
-          <form action="" class="form">
+          <form id="form" action="server.php" method="post" class="form">
             <div class="form__left-col">
               <div class="form__row">
                 <label for="" class="form__label">
                   <div class="form__input-title">Имя</div>
-                  <input type="text" class="form__input">
+                  <input id="user-name" name="user-name" type="text" class="form__input" required>
                 </label>
                 <label for="" class="form__label">
                   <div class="form__input-title">Телефон</div>
-                  <input type="text" class="form__input">
+                  <input id="user-phone" name="user-phone" type="text" class="form__input" required>
                 </label>
               </div>
               <div class="form__row">
                 <label for="" class="form__label">
                   <div class="form__input-title">Улица</div>
-                  <input type="text" class="form__input">
+                  <input id="user-prospect" name="user-prospect" type="text" class="form__input">
                 </label>
               </div>
               <div class="form__row">
                 <label for="" class="form__label">
                   <div class="form__input-title">Дом</div>
-                  <input type="text" class="form__input">
+                  <input id="user-house" name="user-house" type="text" class="form__input">
                 </label>
                 <label for="" class="form__label">
                   <div class="form__input-title">Корпус</div>
-                  <input type="text" class="form__input">
+                  <input id="user-hull" name="user-hull" type="text" class="form__input">
                 </label>
                 <label for="" class="form__label">
                   <div class="form__input-title">Квартира</div>
-                  <input type="text" class="form__input">
+                  <input id="user-flat" name="user-flat" type="text" class="form__input">
                 </label>
                 <label for="" class="form__label">
                   <div class="form__input-title">Этаж</div>
-                  <input type="text" class="form__input">
+                  <input id="user-floor" name="user-floor" type="text" class="form__input">
                 </label>
               </div>
             </div>
@@ -837,21 +779,21 @@
               <div class="form__row">
                 <label for="" class="form__label">
                   <div class="form__input-title">Комментарий</div>
-                  <textarea name="" class="form__input form__input_textarea"></textarea>
+                  <textarea id="comment" name="comment" class="form__input form__input_textarea"></textarea>
                 </label>
               </div>
               <div class="form__row form__row_radio">
                 <ul class="radio">
                   <li class="radio__item">
                     <label class="form__label form__label_radio">
-                      <input type="radio" name="radio" class="form__radio">
+                      <input id="cash" name="pay-option" type="radio" class="form__radio" value="Наличные">
                       <div class="form__radio-fake"></div>
                       <div class="form__input-title">Потребуется сдача</div>
                     </label>
                   </li>
                   <li class="radio__item">
                     <label class="form__label form__label_radio">
-                      <input type="radio" name="radio" class="form__radio" checked>
+                      <input id="card" name="pay-option" type="radio" class="form__radio" value="Карта" checked>
                       <div class="form__radio-fake"></div>
                       <div class="form__input-title">Оплата по карте</div>
                     </label>
@@ -860,7 +802,7 @@
               </div>
               <div class="form__row form__row_checkbox">
                 <label class="form__label form__label_checkbox">
-                    <input type="checkbox" class="form__checkbox" checked>
+                    <input id="call-back" name="call-back" type="checkbox" class="form__checkbox" checked>
                     <div class="form__checkbox-fake"></div>
                     <div class="form__input-title form__input-title_checkbox">Не перезванивать</div>
                   </label>
@@ -875,7 +817,10 @@
           </form>
         </div>
       </section>
-      <section class="section map" style="background-image: url('img/bg/map-bg.jpg')">
+      <section class="section map">
+        <div class="ya-map" id="ya-map">
+          <!-- <img src="./img/icons/map-marker.svg" alt="" class="ya-map__placemark"> -->
+        </div>
         <footer class="footer" style="background-image: url('img/bg/footer_bg.jpg')">
           <div class="container container_map">
             <div class="footer__left-col">
@@ -926,6 +871,18 @@
       </section>
     </div>
   </div>
+    <div class="point-menu">
+            <ul class="point-menu__list">
+            <li class="point-menu__item point-active"><a data-scroll-to="0" class="point-menu__link"href="#"></a></li>
+            <li class="point-menu__item"><a data-scroll-to="1" class="point-menu__link"href="#"></a></li>
+            <li class="point-menu__item"><a data-scroll-to="2" class="point-menu__link"href="#"></a></li>
+            <li class="point-menu__item"><a data-scroll-to="3" class="point-menu__link"href="#"></a></li>
+            <li class="point-menu__item"><a data-scroll-to="4" class="point-menu__link"href="#"></a></li>
+            <li class="point-menu__item"><a data-scroll-to="5" class="point-menu__link"href="#"></a></li>
+            <li class="point-menu__item"><a data-scroll-to="6" class="point-menu__link"href="#"></a></li>
+                <li class="point-menu__item"><a data-scroll-to="6" class="point-menu__link"href="#"></a></li>
+            </ul>
+        </div>
   <div class="popup" id="hidden-content">
     <a data-fancybox-close href="javascript:;" class="popup__close">
       <div class="popup__cross"></div>
@@ -936,9 +893,29 @@
       маленькая океана пояс жизни переписали грустный путь большого реторический? Если то предупредила вершину она последний составитель сбить однажды осталось прямо, бросил повстречался одна текстами от всех напоивший своего текстов ведущими букв лучше
       необходимыми текста рот ручеек. Реторический, коварный.</p>
   </div>
+  <div class="popup popup_success">
+    <a data-fancybox-close href="javascript:;" class="popup__close">
+      <div class="popup__cross"></div>
+    </a>
+    <p>Ваш заказ отправлен на обработку!</p>
+  </div>
+  <div class="popup popup_failure">
+    <a data-fancybox-close href="javascript:;" class="popup__close">
+      <div class="popup__cross"></div>
+    </a>
+    <p>Ошибка доступ к серверу. Попробуйте позже!</p>
+  </div>
   <script src="./js/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
   <script src="./js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.7/mobile-detect.min.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+  <script src="./js/jquery.inputmask.bundle.min.js"></script>
+  <script src="./js/phone.js"></script>
+  <script src="./js/phone-ru.js"></script>
+  <script src="./js/phone-be.js"></script>
+
   <script src="./js/main.js"></script>
 </body>
 
