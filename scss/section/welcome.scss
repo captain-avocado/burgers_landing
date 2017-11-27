@@ -9,12 +9,95 @@
 }
 
 .header {
-  // height: calculate-rem(90px);
-  // height: 90px;
   padding: calculate-rem(20px) 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.is-clicked {
+  overflow: hidden;
+
+  .container_welcome {
+    background: rgba($gray, .8);
+    transition: background 0.3s;
+    margin: 0;
+  }
+
+  .forward,
+  .intro {
+    display: none;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .navigation_main {
+    display: none;
+  }
+
+  .navigation_burger {
+    display: block;
+  }
+
+  .will-appear {
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+  .navigation {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &__list_burger {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__link {
+      font-size: 1.125rem;
+    }
+
+    &__item::after {
+      display: block;
+    }
+
+    &__item {
+      margin-right: 0;
+      text-align: center;
+
+      &:after {
+        display: block;
+      }
+    }
+
+    .navigation__item:not(:last-of-type):after {
+      margin-left: 0;
+    }
+  }
+
+  .burger-menu {
+    display: inline-flex;
+    height: 0;
+
+    &::after {
+      transform: rotate(45deg);
+      top: calculate-rem(-0.5px);
+    }
+
+    &::before {
+      top: calculate-rem(-0.5px);
+      transform: rotate(-45deg);
+    }
+  }
+
+  .btn-order {
+    display: none;
+  }
 }
 
 .logo {
@@ -62,7 +145,16 @@
   @include btn(calculate-rem(10px), calculate-rem(15px), $orange, $white);
 }
 
+.burger-link {
+  width: calculate-rem(24px);
+  height: calculate-rem(24px);
+  position: relative;
+  margin-left: calculate-rem(30px);
+}
+
 .burger-menu {
+  position: absolute;
+  top: calculate-rem(10px);
   display: none;
   @include tablets {
     display: block;
@@ -71,9 +163,7 @@
   height: calculate-rem(4px);
   background-color: $white;
   border-radius: calculate-rem(2px);
-  margin-left: calculate-rem(30px);
-  position: relative;
-
+  // margin-left: calculate-rem(30px);
   &::after {
     content: '';
     position: absolute;
@@ -95,6 +185,10 @@
     background-color: $white;
     border-radius: calculate-rem(2px);
   }
+}
+
+.navigation_burger {
+  display: none;
 }
 
 .intro {
@@ -164,5 +258,9 @@
   margin: 0 auto calculate-rem(50px);
   @include tablets {
     margin-bottom: calculate-rem(40px);
+  }
+
+  &:hover .forward__img {
+    animation: slideInDown 1s;
   }
 }
