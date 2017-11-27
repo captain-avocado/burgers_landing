@@ -82,6 +82,49 @@ html {
 .popup {
   display: none;
 }
+
+.point-menu {
+    @include tablets {
+        display: none;
+    }
+    position: fixed;
+	top: calculate-rem(90px);
+	right: calculate-rem(40px);
+    
+    &__item {
+       width: calculate-rem(16px);
+        height: calculate-rem(16px);
+        position: relative;
+        &::before {
+           content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calculate-rem(6px);
+            height: calculate-rem(6px);
+            background-color: $white;
+            border-radius: 50%;
+        }
+        &:hover {
+            border: calculate-rem(1px) solid $white;
+            border-radius: 50%;
+//            cursor: pointer;
+        }
+    }
+    &__link {
+        position: absolute;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.point-active {
+    border: calculate-rem(1px) solid $white;
+    border-radius: 50%;
+}
+
 @keyframes slideInDown {
   from {
     transform: translate3d(0, -100%, 0);

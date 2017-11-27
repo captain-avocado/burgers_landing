@@ -126,6 +126,42 @@ html {
 .popup {
   display: none; }
 
+.point-menu {
+  position: fixed;
+  top: 5.625rem;
+  right: 2.5rem; }
+  @media screen and (max-width: 768px) {
+    .point-menu {
+      display: none; } }
+  .point-menu__item {
+    width: 1rem;
+    height: 1rem;
+    position: relative; }
+    .point-menu__item::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 0.375rem;
+      height: 0.375rem;
+      background-color: #fff;
+      border-radius: 50%; }
+    .point-menu__item:hover {
+      border: 0.0625rem solid #fff;
+      border-radius: 50%; }
+  .point-menu__link {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%; }
+
+.point-active {
+  border: 0.0625rem solid #fff;
+  border-radius: 50%; }
+
 @-webkit-keyframes slideInDown {
   from {
     -webkit-transform: translate3d(0, -100%, 0);
@@ -832,7 +868,8 @@ html {
         top: 10%; } }
 
 .btn-order {
-  border: none; }
+  border: none;
+  outline: none; }
 
 .form__clear {
   text-decoration: none;
@@ -1007,6 +1044,9 @@ html {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
+
+.is-active .accordeon__title_menu {
+  color: #f9b43b; }
 
 .is-active .burg-descr {
   width: 33.75rem;
@@ -1452,6 +1492,7 @@ html {
     margin-right: auto;
     font-weight: 100; }
   .ingredients__img {
+    width: 2.5rem !important;
     margin-right: 1.25rem; }
   .ingredients__right-col {
     font-weight: 300; }
@@ -1733,5 +1774,10 @@ html {
       -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
       transform: rotate(90deg); }
+  @media screen and (max-width: 480px) {
+    .popup {
+      width: 15.625rem; }
+      .popup p {
+        font-size: .65rem; } }
 
 /*# sourceMappingURL=main.css.map */

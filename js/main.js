@@ -216,15 +216,20 @@ let onePageScroll = () => {
   let moveSection = (scrollValue) => {
     let sections = defineSections();
     let index = sections.curSection.index();
+    let pointItem = $('.point-menu__item');
 
     if (!inScroll) {
       inScroll = true;
       if (scrollValue > 0 && sections.nextSection.length) {
+        pointItem.eq(index).removeClass('point-active');
         index++;
+        pointItem.eq(index).addClass('point-active');
         transformCSS(index);
       }
       if (scrollValue < 0 && sections.prevSection.length) {
+        pointItem.eq(index).removeClass('point-active');
         index--;
+        pointItem.eq(index).addClass('point-active');
         transformCSS(index);
       }
 
@@ -275,6 +280,21 @@ let onePageScroll = () => {
     $('.section').eq(0).removeClass('active');
     $('.section').eq(index).addClass('active');
   });
+    
+    $('[data-scroll-to]').on('click', (e) => {
+        //останавливаем поведение по умолчанию
+        e.preventDefault();
+        //находим активный элемент списка и элемент, на который кликнули
+        let clickedItem = $(e.currentTarget).parent();
+        //если выбранный элемент уже в активном состоянии, то обработчик заканчивает свое действие 
+        if (clickedItem.hasClass('point-active')) return true;
+        //находим активную в данный момент секцию и снимаем активный класс
+        $('.section').filter('.active').removeClass('active');
+        $('.point-active').removeClass('point-active');
+        clickedItem.addClass('active');
+        $('.section').eq(clickedItem.index()).addClass('active');
+        transformCSS(clickedItem.index());
+    });
 
   $('.btn-order').on('click', (e) => {
     e.preventDefault;
